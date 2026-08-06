@@ -86,7 +86,7 @@ export default function Home() {
             </div>
 
             <div className="mt-14 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-sm text-content-subtle">
-              {['No templates', '90+ Lighthouse scores', '150+ projects delivered'].map((item) => (
+              {['90+ Lighthouse scores', '150+ projects delivered'].map((item) => (
                 <span key={item} className="flex items-center gap-2">
                   <Check className="h-4 w-4 text-accent" /> {item}
                 </span>

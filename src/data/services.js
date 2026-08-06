@@ -23,7 +23,7 @@ export const services = [
     startingPrice: '$2,500',
     deliveryTime: '3–6 weeks',
     highlights: [
-      { icon: Layout, label: 'Bespoke Design' },
+      { icon: Layout, label: 'Best Design' },
       { icon: Gauge, label: 'Performance Optimized' },
       { icon: GitBranch, label: 'Version Controlled' },
     ],
@@ -68,7 +68,7 @@ export const services = [
       'Automated testing & CI/CD pipelines',
     ],
     technologies: ['React', 'Node.js', 'PostgreSQL', 'Prisma', 'GraphQL', 'Docker'],
-    startingPrice: '$6,000',
+    startingPrice: '$10,000',
     deliveryTime: '6–12 weeks',
     highlights: [
       { icon: Zap, label: 'Real-time Features' },
@@ -237,35 +237,35 @@ export const testimonials = [
 ]
 
 export const stats = [
-  { value: '150+', label: 'Projects Delivered' },
+  { value: 'Hundreds of', label: 'Projects Delivered' },
   { value: '98%', label: 'Client Satisfaction' },
-  { value: '12+', label: 'Years Experience' },
-  { value: '40+', label: 'Team Members' },
+  { value: '5 plus', label: 'Years Experience' },
+  
 ]
 
 export const processSteps = [
   {
-    number: '01',
+    number: 'Step 1',
     title: 'Discovery & Planning',
     description:
       'We dive deep into your business goals, target audience, and project requirements to create a comprehensive roadmap.',
   },
   {
-    number: '02',
+    number: 'Step 2',
     title: 'Design & Prototyping',
     description:
       'Our designers craft wireframes and interactive prototypes, refining the user experience before a single line of code is written.',
   },
   {
-    number: '03',
+    number: 'Step 3',
     title: 'Development & Testing',
     description:
       'We build your product using modern technologies with rigorous testing at every stage to ensure quality and performance.',
   },
   {
-    number: '04',
+    number: 'Step 4',
     title: 'Launch & Support',
     description:
-      'We deploy your project to production and provide ongoing maintenance, updates, and support to keep everything running smoothly.',
+      'We deploy your project to production and provide ongoing maintenance and hosting services, updates, and support to keep everything running smoothly.',
   },
 ]
