@@ -338,17 +338,12 @@ export default function MindMap() {
         return
       }
 
-      const fade = Math.min(Math.max(scrollRef.current / (height * 0.55), 0), 1)
-
-      if (fade >= 0.999) {
+      if (scrollRef.current >= height * 0.55) {
         animationRef.current = requestAnimationFrame(animate)
         return
       }
 
       ctx.save()
-      ctx.translate(0, -fade * 60)
-      ctx.globalAlpha = 1 - fade
-      ctx.filter = `blur(${fade * 7}px)`
 
       const mouthX = vase.x
       const mouthY = vase.y
@@ -398,23 +393,6 @@ export default function MindMap() {
       drawVase(ctx, vase.x, vase.y, isDark, vase.tilt)
 
       ctx.restore()
-
-      if (fade > 0.01) {
-        const mistAlpha = Math.sin(fade * Math.PI)
-        const mistColor = isDark ? '255, 255, 255' : '235, 235, 245'
-        for (const puff of mistRef.current) {
-          ctx.beginPath()
-          ctx.arc(
-            vase.x + puff.ox + puff.drift * fade,
-            vase.y + 40 + puff.oy - puff.rise * fade,
-            puff.size * (0.6 + fade),
-            0,
-            Math.PI * 2
-          )
-          ctx.fillStyle = `rgba(${mistColor}, ${puff.alpha * mistAlpha})`
-          ctx.fill()
-        }
-      }
 
       animationRef.current = requestAnimationFrame(animate)
     }

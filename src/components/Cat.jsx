@@ -164,9 +164,7 @@ export default function Cat() {
       const x = pos.x
       const y = pos.y
 
-      const fade = Math.min(Math.max(scrollRef.current / (height * 0.55), 0), 1)
-
-      if (fade >= 0.999) {
+      if (scrollRef.current >= height * 0.55) {
         animationRef.current = requestAnimationFrame(animate)
         return
       }
@@ -202,7 +200,6 @@ export default function Cat() {
       ctx.save()
       ctx.translate(x, y)
       ctx.scale(scale, scale)
-      ctx.globalAlpha = 1 - fade
 
       ctx.beginPath()
       ctx.ellipse(0, 62, 58, 10, 0, 0, Math.PI * 2)
