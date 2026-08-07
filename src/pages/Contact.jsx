@@ -142,7 +142,7 @@ export default function Contact() {
   ]
 
   const inputClass =
-    'w-full rounded-2xl border border-line-strong bg-surface-sunken/50 px-4 py-3.5 text-content placeholder-content-subtle outline-none transition-all duration-300 focus:border-brand focus:ring-2 focus:ring-brand/20'
+    'w-full rounded-2xl border border-line-strong bg-surface-elevated text-content placeholder-content-muted px-4 py-3.5 outline-none transition-all duration-300 focus:border-brand focus:ring-2 focus:ring-brand/30 dark:bg-surface-elevated dark:text-content font-medium'
 
   return (
     <div className="noise-bg pt-36">
@@ -379,13 +379,13 @@ export default function Contact() {
                           onChange={handleChange}
                           className={inputClass}
                         >
-                          <option value="">Select a service</option>
+                          <option value="" className="bg-surface-elevated text-content">Select a service</option>
                           {services.map((s) => (
-                            <option key={s.slug} value={s.title}>
+                            <option key={s.slug} value={s.title} className="bg-surface-elevated text-content">
                               {s.title}
                             </option>
                           ))}
-                          <option value="other">Other / Not sure</option>
+                          <option value="other" className="bg-surface-elevated text-content">Other / Not sure</option>
                         </select>
                       </div>
                       <div>
@@ -398,9 +398,9 @@ export default function Contact() {
                           onChange={handleChange}
                           className={inputClass}
                         >
-                          <option value="">Select a range</option>
+                          <option value="" className="bg-surface-elevated text-content">Select a range</option>
                           {budgets.map((b) => (
-                            <option key={b} value={b}>
+                            <option key={b} value={b} className="bg-surface-elevated text-content">
                               {b}
                             </option>
                           ))}
