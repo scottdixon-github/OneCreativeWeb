@@ -317,8 +317,8 @@ export default function Contact() {
                   </div>
                 </TiltCard>
               ) : (
-                <GradientBorderCard className="rounded-[2.5rem]">
-                  <form onSubmit={handleSubmit} className="card-organic space-y-5 p-5 sm:p-8 rounded-[2.5rem]">
+                <div className="card-organic rounded-[2.5rem] p-6 sm:p-10 shadow-xl border-2 border-line-strong bg-surface-elevated">
+                  <form onSubmit={handleSubmit} className="space-y-6">
                     <div className="grid gap-5 sm:grid-cols-2">
                       <div>
                         <label className="mb-2 flex items-center gap-2 text-sm font-medium text-content">
@@ -429,7 +429,7 @@ export default function Contact() {
                       <Send className="h-4 w-4" />
                     </button>
                   </form>
-                </GradientBorderCard>
+                </div>
               )}
             </motion.div>
           </div>
