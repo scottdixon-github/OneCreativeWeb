@@ -18,6 +18,8 @@ export default function HeroBackground() {
           alt=""
           className="h-full w-full object-cover transition-opacity duration-1000"
           loading="eager"
+          fetchpriority="high"
+          decoding="async"
         />
         <div
           className="absolute inset-0 transition-opacity duration-1000"
