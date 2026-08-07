@@ -96,7 +96,7 @@ export default function Contact() {
     try {
       // Send message via Web3Forms free API directly to Hostinger inbox (hello@onecreativeweb.com)
       const formData = new FormData()
-      formData.append("access_key", "YOUR_WEB3FORMS_ACCESS_KEY") // Default demo key or user Web3Forms key
+      formData.append("access_key", "5b5ba972-dca6-4c99-82b7-455e361842cd") // Default demo key or user Web3Forms key
       formData.append("name", form.name)
       formData.append("email", form.email)
       formData.append("company", form.company || 'N/A')
@@ -184,7 +184,7 @@ export default function Contact() {
               {/* Balance spokes */}
               <line x1="100" y1="18" x2="100" y2="182" />
               <line x1="18" y1="100" x2="182" y2="100" />
-              
+
               {/* Hairspring spiral */}
               <path d={spiralPath} strokeWidth="1.0" opacity="0.6" />
 
