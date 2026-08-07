@@ -88,17 +88,17 @@ export default function Home() {
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             className="mx-auto max-w-xl text-center"
           >
-            <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-line-strong bg-surface-elevated/80 px-5 py-2.5 text-sm font-semibold text-brand backdrop-blur-sm shadow-sm">
-              <Sparkles className="h-4 w-4" />
+            <div className="mb-6 sm:mb-8 inline-flex items-center gap-2 rounded-full border border-line-strong bg-surface-elevated/80 px-4 py-2 sm:px-5 sm:py-2.5 text-xs sm:text-sm font-semibold text-brand backdrop-blur-sm shadow-sm">
+              <Sparkles className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
               Full-Featured Web Development Services
             </div>
 
-            <h1 className="font-display text-4xl font-extrabold leading-[1.05] text-content sm:text-5xl lg:text-7xl text-balance">
-              We knit together <br />
+            <h1 className="font-display text-3xl font-extrabold leading-[1.1] text-content sm:text-5xl lg:text-7xl text-balance">
+              We knit together <br className="hidden sm:inline" />
               <span className="gradient-text">digital experiences</span>
-              <br />
-              that feel{' '}
-              <span className="fuzzy-warm-alive block mt-2 sm:inline sm:mt-0">warm and alive</span>
+              <br className="hidden sm:inline" />
+              {' '}that feel{' '}
+              <span className="fuzzy-warm-alive inline-block mt-1 sm:mt-0">warm and alive</span>
             </h1>
 
             <p className="mx-auto mt-8 max-w-2xl text-lg font-medium leading-relaxed text-content-muted text-pretty">

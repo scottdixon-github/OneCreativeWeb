@@ -64,7 +64,7 @@ export default function ServiceDetail() {
               <div className="flex h-20 w-20 items-center justify-center rounded-[2rem] bg-gradient-to-br from-brand/15 to-accent/15 ring-1 ring-brand/20">
                 <Icon className="h-10 w-10 text-brand" />
               </div>
-              <h1 className="mt-8 font-display text-4xl font-extrabold leading-[1.05] text-content sm:text-5xl lg:text-6xl text-balance">
+              <h1 className="mt-8 font-display text-3xl font-extrabold leading-[1.05] text-content sm:text-5xl lg:text-6xl text-balance">
                 {service.title}
               </h1>
               <p className="mt-5 text-xl text-content-muted text-pretty">{service.tagline}</p>

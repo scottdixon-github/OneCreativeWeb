@@ -48,12 +48,19 @@ export default function Footer() {
               e-commerce solutions that drive results.
             </p>
             <div className="mt-6 flex gap-3">
-              {[Twitter, Linkedin, Github, Mail].map((Icon, i) => (
+              {[
+                { icon: Twitter, href: 'https://twitter.com', label: 'Twitter' },
+                { icon: Linkedin, href: 'https://linkedin.com', label: 'LinkedIn' },
+                { icon: Github, href: 'https://github.com/scottdixon-github', label: 'GitHub' },
+                { icon: Mail, href: 'mailto:hello@creativeweb.inc', label: 'Email' },
+              ].map(({ icon: Icon, href, label }) => (
                 <a
-                  key={i}
-                  href="#"
+                  key={label}
+                  href={href}
+                  target={href.startsWith('http') ? '_blank' : undefined}
+                  rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
                   className="flex h-10 w-10 items-center justify-center rounded-full border border-line-strong text-content-muted transition-all hover:border-brand hover:text-brand hover:scale-110"
-                  aria-label="Social link"
+                  aria-label={label}
                 >
                   <Icon className="h-4 w-4" />
                 </a>

@@ -499,7 +499,7 @@ export default function Cat() {
     <>
       <canvas
         ref={canvasRef}
-        className="pointer-events-none absolute inset-0 z-40"
+        className="pointer-events-none absolute inset-0 z-40 hidden md:block"
         aria-hidden="true"
         style={{ cursor: 'none' }}
       />
@@ -509,7 +509,7 @@ export default function Cat() {
             const el = document.getElementById('contact-cta')
             if (el) el.scrollIntoView({ behavior: 'smooth' })
           }}
-          className="absolute z-50 cursor-pointer group"
+          className="absolute z-50 cursor-pointer group hidden md:block"
           style={{
             left: balloonPosRef.current.x,
             top: balloonPosRef.current.y - 150,

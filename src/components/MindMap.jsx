@@ -434,7 +434,7 @@ export default function MindMap() {
   return (
     <canvas
       ref={canvasRef}
-      className="pointer-events-none absolute inset-0 z-40"
+      className="pointer-events-none absolute inset-0 z-40 hidden md:block"
       aria-hidden="true"
     />
   )

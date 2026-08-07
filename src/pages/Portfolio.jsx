@@ -41,7 +41,7 @@ export default function Portfolio() {
               <Briefcase className="h-4 w-4" />
               Our Work
             </div>
-            <h1 className="font-display text-4xl font-extrabold leading-[1.05] text-content sm:text-5xl lg:text-6xl text-balance">
+            <h1 className="font-display text-3xl font-extrabold leading-[1.05] text-content sm:text-5xl lg:text-6xl text-balance">
               Our{' '}
               <span className="gradient-text">portfolio</span>
             </h1>

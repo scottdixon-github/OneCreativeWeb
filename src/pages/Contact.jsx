@@ -75,7 +75,7 @@ export default function Contact() {
   const contactInfo = [
     { icon: Mail, label: 'Email', value: 'hello@creativeweb.inc', href: 'mailto:hello@creativeweb.inc' },
     { icon: Phone, label: 'Phone', value: '+1 (555) 123-4567', href: 'tel:+15551234567' },
-    { icon: MapPin, label: 'Location', value: 'San Francisco, CA', href: '#' },
+    { icon: MapPin, label: 'Location', value: 'San Francisco, CA', href: 'https://www.google.com/maps/search/?api=1&query=San+Francisco,CA' },
   ]
 
   const inputClass =
@@ -148,7 +148,7 @@ export default function Contact() {
               <MessageSquare className="h-4 w-4" />
               Get in Touch
             </div>
-            <h1 className="font-display text-4xl font-extrabold leading-[1.05] text-content sm:text-5xl lg:text-6xl text-balance">
+            <h1 className="font-display text-3xl font-extrabold leading-[1.05] text-content sm:text-5xl lg:text-6xl text-balance">
               Let's build{' '}
               <span className="gradient-text">together</span>
             </h1>
@@ -187,6 +187,8 @@ export default function Contact() {
                   <TiltCard key={info.label} intensity={5}>
                     <a
                       href={info.href}
+                      target={info.href.startsWith('http') ? '_blank' : undefined}
+                      rel={info.href.startsWith('http') ? 'noopener noreferrer' : undefined}
                       className="card-organic flex items-center gap-4 p-6 hover:border-brand/40 hover:shadow-lg hover:shadow-glow-brand"
                     >
                       <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-brand/15 to-accent/15 ring-1 ring-brand/20">

@@ -62,7 +62,7 @@ export default function About() {
               <Users className="h-4 w-4" />
               About Us
             </div>
-            <h1 className="font-display text-4xl font-extrabold leading-[1.05] text-content sm:text-5xl lg:text-6xl text-balance">
+            <h1 className="font-display text-3xl font-extrabold leading-[1.05] text-content sm:text-5xl lg:text-6xl text-balance">
               We're{' '}
               <span className="gradient-text">Creative Web Inc.</span>
             </h1>

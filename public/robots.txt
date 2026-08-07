@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://scottdixon-github.github.io/OneCreativeWeb/sitemap.xml
