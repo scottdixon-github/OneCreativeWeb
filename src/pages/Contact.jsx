@@ -1,9 +1,32 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import {
-  Mail, Phone, MapPin, Send, CheckCircle2, MessageSquare, User, Building,
+  Mail, Phone, MapPin, Send, CheckCircle2, MessageSquare, User, Building, Download,
 } from 'lucide-react'
 import { services } from '../data/services.js'
+
+function downloadVCard() {
+  const vcard = `BEGIN:VCARD
+VERSION:3.0
+FN:Creative Web Inc.
+ORG:Creative Web Inc.
+TITLE:Full-Featured Web Development Services
+TEL;TYPE=WORK,VOICE:(312) 956-7549
+EMAIL;TYPE=PREF,INTERNET:hello@onecreativeweb.com
+ADR;TYPE=WORK:;;Charleston;SC;;;United States
+URL:https://www.onecreativeweb.com
+NOTE:Full-featured web development services. We build custom websites, web apps, and e-commerce solutions.
+END:VCARD`
+
+  const blob = new Blob([vcard], { type: 'text/vcard;charset=utf-8' })
+  const url = URL.createObjectURL(blob)
+  const link = document.createElement('a')
+  link.href = url
+  link.setAttribute('download', 'Creative_Web_Inc.vcf')
+  document.body.appendChild(link)
+  link.click()
+  document.body.removeChild(link)
+}
 import ParticleField from '../components/ParticleField.jsx'
 import FloatingShapes from '../components/FloatingShapes.jsx'
 import AnimatedOrb from '../components/AnimatedOrb.jsx'
@@ -242,6 +265,15 @@ export default function Contact() {
                   </TiltCard>
                 )
               })}
+
+              <button
+                type="button"
+                onClick={downloadVCard}
+                className="btn-secondary w-full py-3 text-sm font-semibold flex items-center justify-center gap-2 hover:border-brand hover:text-brand"
+              >
+                <Download className="h-4 w-4 text-brand" />
+                Save Contact Card (.vcf)
+              </button>
 
               <div className="card-organic p-6">
                 <h3 className="font-display text-sm font-semibold uppercase tracking-wider text-content">
