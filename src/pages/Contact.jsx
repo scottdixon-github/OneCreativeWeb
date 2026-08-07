@@ -94,26 +94,27 @@ export default function Contact() {
     setSubmitting(true)
 
     try {
-      // Send form data via Formspree endpoint pointing to hello@onecreativeweb.com
-      const res = await fetch('https://formspree.io/f/hello@onecreativeweb.com', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json',
-        },
-        body: JSON.stringify({
-          name: form.name,
-          email: form.email,
-          company: form.company || 'N/A',
-          service: form.service,
-          budget: form.budget || 'Not specified',
-          message: form.message,
-          _subject: `New Project Inquiry from ${form.name}`,
-        }),
+      // Send message via Web3Forms free API directly to Hostinger inbox (hello@onecreativeweb.com)
+      const formData = new FormData()
+      formData.append("access_key", "YOUR_WEB3FORMS_ACCESS_KEY") // Default demo key or user Web3Forms key
+      formData.append("name", form.name)
+      formData.append("email", form.email)
+      formData.append("company", form.company || 'N/A')
+      formData.append("service", form.service)
+      formData.append("budget", form.budget || 'Not specified')
+      formData.append("message", form.message)
+      formData.append("subject", `New Website Inquiry from ${form.name}`)
+      formData.append("from_name", "One Creative Web Contact Form")
+
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData,
       })
 
-      if (!res.ok) {
-        // Fallback to mailto link if form service is unconfigured
+      const data = await res.json()
+
+      if (!data.success) {
+        // Fallback to mailto link directly to Hostinger email
         const subject = encodeURIComponent(`Project Inquiry: ${form.service || 'Web Development'}`)
         const body = encodeURIComponent(
           `Name: ${form.name}\nEmail: ${form.email}\nCompany: ${form.company}\nService: ${form.service}\nBudget: ${form.budget}\n\nMessage:\n${form.message}`
