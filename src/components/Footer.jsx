@@ -52,7 +52,7 @@ export default function Footer() {
                 { icon: Twitter, href: 'https://twitter.com', label: 'Twitter' },
                 { icon: Linkedin, href: 'https://linkedin.com', label: 'LinkedIn' },
                 { icon: Github, href: 'https://github.com/scottdixon-github', label: 'GitHub' },
-                { icon: Mail, href: 'mailto:hello@creativeweb.inc', label: 'Email' },
+                { icon: Mail, href: 'mailto:hello@onecreativeweb.com', label: 'Email' },
               ].map(({ icon: Icon, href, label }) => (
                 <a
                   key={label}
@@ -95,7 +95,7 @@ export default function Footer() {
             <ul className="mt-4 space-y-3">
               <li className="flex items-center gap-3 text-sm font-medium text-content-muted">
                 <Mail className="h-4 w-4 text-brand" />
-                hello@creativeweb.inc
+                hello@onecreativeweb.com
               </li>
               <li className="flex items-center gap-3 text-sm font-medium text-content-muted">
                 <Phone className="h-4 w-4 text-brand" />

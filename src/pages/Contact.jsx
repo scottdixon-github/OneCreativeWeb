@@ -73,7 +73,7 @@ export default function Contact() {
   const budgets = ['< $2,500', '$2,500 – $5,000', '$5,000 – $10,000', '$10,000 – $25,000', '$25,000+']
 
   const contactInfo = [
-    { icon: Mail, label: 'Email', value: 'hello@creativeweb.inc', href: 'mailto:hello@creativeweb.inc' },
+    { icon: Mail, label: 'Email', value: 'hello@onecreativeweb.com', href: 'mailto:hello@onecreativeweb.com' },
     { icon: Phone, label: 'Phone', value: '+1 (555) 123-4567', href: 'tel:+15551234567' },
     { icon: MapPin, label: 'Location', value: 'San Francisco, CA', href: 'https://www.google.com/maps/search/?api=1&query=San+Francisco,CA' },
   ]
