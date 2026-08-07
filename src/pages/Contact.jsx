@@ -10,6 +10,9 @@ import AnimatedOrb from '../components/AnimatedOrb.jsx'
 import TiltCard from '../components/TiltCard.jsx'
 import GradientBorderCard from '../components/GradientBorderCard.jsx'
 
+import CatMascot from '../components/CatMascot.jsx'
+import GearFactory from '../components/GearFactory.jsx'
+
 const blobVariants = {
   animate: {
     borderRadius: [
@@ -21,6 +24,31 @@ const blobVariants = {
     transition: { duration: 15, repeat: Infinity, ease: 'easeInOut' },
   },
 }
+
+// Pre-calculate SVG gear teeth and spiral path for the watch balance wheel
+const gearTeeth = Array.from({ length: 30 }).map((_, i) => {
+  const angle = (i * 360) / 30
+  const angleRad = (angle * Math.PI) / 180
+  const x1 = 100 + 82 * Math.cos(angleRad - 0.05)
+  const y1 = 100 + 82 * Math.sin(angleRad - 0.05)
+  const x2 = 100 + 92 * Math.cos(angleRad)
+  const y2 = 100 + 92 * Math.sin(angleRad)
+  const x3 = 100 + 82 * Math.cos(angleRad + 0.05)
+  const y3 = 100 + 82 * Math.sin(angleRad + 0.05)
+  return `M ${x1.toFixed(1)} ${y1.toFixed(1)} L ${x2.toFixed(1)} ${y2.toFixed(1)} L ${x3.toFixed(1)} ${y3.toFixed(1)}`
+}).join(' ')
+
+const generateSpiral = () => {
+  let path = 'M 100 100'
+  for (let theta = 0; theta < Math.PI * 10; theta += 0.1) {
+    const r = 1.2 * theta
+    const x = 100 + r * Math.cos(theta)
+    const y = 100 + r * Math.sin(theta)
+    path += ` L ${x.toFixed(1)} ${y.toFixed(1)}`
+  }
+  return path
+}
+const spiralPath = generateSpiral()
 
 export default function Contact() {
   const [form, setForm] = useState({
@@ -58,13 +86,50 @@ export default function Contact() {
       <section className="relative overflow-hidden section-padding">
         <ParticleField particleCount={40} connectionDistance={90} />
         <FloatingShapes />
-        <AnimatedOrb className="left-[10%] top-[5%]" size="h-72 w-72" color="brand" />
-        <AnimatedOrb className="right-[5%] bottom-[10%]" size="h-64 w-64" color="accent" delay={3} />
+        {/* Ticking escapement watch gear instead of the blue background blob */}
         <motion.div
-          variants={blobVariants}
-          animate="animate"
-          className="absolute left-[10%] top-[5%] -z-10 h-72 w-72 bg-glow-brand"
-        />
+          animate={{
+            rotate: [0, -160, -160, 0, 160, 160, 0],
+          }}
+          transition={{
+            duration: 3.5,
+            ease: "easeInOut",
+            repeat: Infinity,
+          }}
+          className="absolute left-[5%] top-[10%] -z-10 h-80 w-80 text-brand/20 dark:text-brand/10 pointer-events-none"
+        >
+          <svg viewBox="0 0 200 200" className="w-full h-full">
+            <defs>
+              <radialGradient id="gear-glow" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stopColor="#818cf8" stopOpacity="0.25" />
+                <stop offset="60%" stopColor="#4f46e5" stopOpacity="0.1" />
+                <stop offset="100%" stopColor="transparent" stopOpacity="0" />
+              </radialGradient>
+            </defs>
+            {/* Background glow */}
+            <circle cx="100" cy="100" r="100" fill="url(#gear-glow)" className="blur-xl" />
+
+            <g stroke="currentColor" strokeWidth="1.5" fill="none" opacity="0.45">
+              {/* Outer rims */}
+              <circle cx="100" cy="100" r="82" />
+              <circle cx="100" cy="100" r="54" />
+
+              {/* Teeth */}
+              <path d={gearTeeth} />
+
+              {/* Balance spokes */}
+              <line x1="100" y1="18" x2="100" y2="182" />
+              <line x1="18" y1="100" x2="182" y2="100" />
+              
+              {/* Hairspring spiral */}
+              <path d={spiralPath} strokeWidth="1.0" opacity="0.6" />
+
+              {/* Center Hub */}
+              <circle cx="100" cy="100" r="10" fill="currentColor" />
+            </g>
+          </svg>
+        </motion.div>
+        <AnimatedOrb className="right-[5%] bottom-[10%]" size="h-64 w-64" color="accent" delay={3} />
         <motion.div
           variants={blobVariants}
           animate="animate"
@@ -83,7 +148,7 @@ export default function Contact() {
               <MessageSquare className="h-4 w-4" />
               Get in Touch
             </div>
-            <h1 className="font-display text-5xl font-extrabold leading-[1.05] text-content sm:text-6xl text-balance">
+            <h1 className="font-display text-4xl font-extrabold leading-[1.05] text-content sm:text-5xl lg:text-6xl text-balance">
               Let's build{' '}
               <span className="gradient-text">together</span>
             </h1>
@@ -91,6 +156,14 @@ export default function Contact() {
               Tell us about your project and we'll get back to you within 24 hours with a free
               consultation and quote.
             </p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.2 }}
+          >
+            <GearFactory />
           </motion.div>
 
           <div className="mt-16 grid gap-8 lg:grid-cols-3">
@@ -101,6 +174,13 @@ export default function Contact() {
               transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
               className="space-y-4"
             >
+              <div className="card-organic relative overflow-hidden flex flex-col items-center justify-center p-6 bg-gradient-to-br from-brand/10 to-accent/10">
+                <CatMascot size={95} className="relative z-10" />
+                <p className="mt-4 text-center text-sm font-medium text-content-muted">
+                  Let's chat! Our cat helper is ready to listen.
+                </p>
+              </div>
+
               {contactInfo.map((info) => {
                 const InfoIcon = info.icon
                 return (
@@ -164,7 +244,7 @@ export default function Contact() {
                 </TiltCard>
               ) : (
                 <GradientBorderCard className="rounded-[2.5rem]">
-                  <form onSubmit={handleSubmit} className="card-organic space-y-5 p-8 rounded-[2.5rem]">
+                  <form onSubmit={handleSubmit} className="card-organic space-y-5 p-5 sm:p-8 rounded-[2.5rem]">
                     <div className="grid gap-5 sm:grid-cols-2">
                       <div>
                         <label className="mb-2 flex items-center gap-2 text-sm font-medium text-content">

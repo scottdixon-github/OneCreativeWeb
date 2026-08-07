@@ -23,7 +23,7 @@ export default function AnimatedOrb({
 
   return (
     <motion.div
-      className={`pointer-events-none absolute rounded-full ${size} ${blur} bg-gradient-to-br ${gradient} ${shadow} ${className}`}
+      className={`pointer-events-none absolute max-h-[80vh] max-w-[80vw] rounded-full ${size} ${blur} bg-gradient-to-br ${gradient} ${shadow} ${className}`}
       animate={{
         scale: [1, 1.15, 1],
         opacity: [0.4, 0.7, 0.4],

@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react'
 import { useTheme } from '../context/ThemeContext.jsx'
+import { publishVase, clearVase, consumeImpulse } from '../lib/heroScene.js'
 
 const STALK_COUNT = 7
 const FAN_SPREAD = 1.05
@@ -248,7 +249,7 @@ export default function MindMap() {
   const canvasRef = useRef(null)
   const { theme } = useTheme()
   const bouquetRef = useRef(null)
-  const vaseRef = useRef({ x: -1000, y: -1000, vx: 0, vy: 0, tilt: 0 })
+  const vaseRef = useRef({ x: -1000, y: -1000, vx: 0, vy: 0, tilt: 0, teeter: 0, teeterV: 0 })
   const animationRef = useRef(null)
   const timeRef = useRef(0)
   const dimensionsRef = useRef({ width: 0, height: 0 })
@@ -264,10 +265,15 @@ export default function MindMap() {
     const isDark = theme === 'dark'
 
     const resize = () => {
-      dimensionsRef.current = { width: window.innerWidth, height: window.innerHeight }
-      const dpr = window.devicePixelRatio
-      canvas.width = dimensionsRef.current.width * dpr
-      canvas.height = dimensionsRef.current.height * dpr
+      const w = window.innerWidth
+      const section = canvas.parentElement
+      const h = section ? section.clientHeight || window.innerHeight : window.innerHeight
+      dimensionsRef.current = { width: w, height: h }
+      const dpr = Math.min(window.devicePixelRatio, 2)
+      canvas.width = w * dpr
+      canvas.height = h * dpr
+      canvas.style.width = w + 'px'
+      canvas.style.height = h + 'px'
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0)
     }
 
@@ -312,8 +318,10 @@ export default function MindMap() {
 
       const vase = vaseRef.current
 
-      const dockX = width * 0.78
-      const targetY = height * 0.52
+      const textMax = Math.min(width - 32, 896)
+      const textLeft = (width - textMax) / 2
+      const dockX = Math.min(width - textLeft / 2, width - 90)
+      const targetY = height * 0.5
 
       if (vase.x < -500) {
         vase.x = dockX
@@ -333,6 +341,17 @@ export default function MindMap() {
         vase.tilt += (targetTilt - vase.tilt) * 0.08
       }
 
+      {
+        const impulse = consumeImpulse()
+        if (impulse) vase.teeterV += impulse
+        vase.teeterV += -vase.teeter * 0.22
+        vase.teeterV *= 0.94
+        vase.teeter += vase.teeterV
+        vase.teeter = Math.max(-0.32, Math.min(0.32, vase.teeter))
+      }
+
+      publishVase(vase.x, vase.y + 34, 30)
+
       if (vase.x < -500) {
         animationRef.current = requestAnimationFrame(animate)
         return
@@ -343,10 +362,17 @@ export default function MindMap() {
         return
       }
 
-      ctx.save()
+      // 1. Draw table first (solid, no tilt)
+      drawTable(ctx, vase.x, vase.y + 68, isDark)
 
-      const mouthX = vase.x
-      const mouthY = vase.y
+      // 2. Draw bouquet and vase tilted/teetered together
+      ctx.save()
+      ctx.translate(vase.x, vase.y)
+      const totalTilt = vase.tilt + vase.teeter
+      ctx.rotate(totalTilt)
+
+      const mouthX = 0
+      const mouthY = 0
 
       for (const stalk of bouquetRef.current) {
         const sway = Math.sin(t * stalk.swaySpeed + stalk.phase) * stalk.swayAmount
@@ -389,9 +415,7 @@ export default function MindMap() {
         }
       }
 
-      drawTable(ctx, vase.x, vase.y + 68, isDark)
-      drawVase(ctx, vase.x, vase.y, isDark, vase.tilt)
-
+      drawVase(ctx, 0, 0, isDark, 0)
       ctx.restore()
 
       animationRef.current = requestAnimationFrame(animate)
@@ -403,13 +427,14 @@ export default function MindMap() {
       cancelAnimationFrame(animationRef.current)
       window.removeEventListener('resize', resize)
       window.removeEventListener('scroll', handleScroll)
+      clearVase()
     }
   }, [theme])
 
   return (
     <canvas
       ref={canvasRef}
-      className="pointer-events-none fixed inset-0 z-40"
+      className="pointer-events-none absolute inset-0 z-40"
       aria-hidden="true"
     />
   )

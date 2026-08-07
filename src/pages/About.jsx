@@ -9,6 +9,7 @@ import FloatingShapes from '../components/FloatingShapes.jsx'
 import AnimatedOrb from '../components/AnimatedOrb.jsx'
 import TiltCard from '../components/TiltCard.jsx'
 import GradientBorderCard from '../components/GradientBorderCard.jsx'
+import CatMascot from '../components/CatMascot.jsx'
 
 const blobVariants = {
   animate: {
@@ -61,7 +62,7 @@ export default function About() {
               <Users className="h-4 w-4" />
               About Us
             </div>
-            <h1 className="font-display text-5xl font-extrabold leading-[1.05] text-content sm:text-6xl text-balance">
+            <h1 className="font-display text-4xl font-extrabold leading-[1.05] text-content sm:text-5xl lg:text-6xl text-balance">
               We're{' '}
               <span className="gradient-text">Creative Web Inc.</span>
             </h1>
@@ -88,7 +89,7 @@ export default function About() {
                 transition={{ duration: 0.5, delay: i * 0.1 }}
                 className="text-center"
               >
-                <div className="font-display text-5xl font-extrabold gradient-text">
+                <div className="font-display text-3xl font-extrabold gradient-text sm:text-4xl lg:text-5xl">
                   {stat.value}
                 </div>
                 <div className="mt-2 text-sm text-content-muted">{stat.label}</div>
@@ -111,7 +112,7 @@ export default function About() {
               </span>
               <div className="h-px w-12 bg-brand" />
             </div>
-            <h2 className="font-display text-4xl font-bold text-content sm:text-5xl text-balance">
+            <h2 className="font-display text-3xl font-bold text-content sm:text-4xl lg:text-5xl text-balance">
               Our{' '}
               <span className="gradient-text">values</span>
             </h2>
@@ -158,7 +159,7 @@ export default function About() {
               </span>
               <div className="h-px w-12 bg-brand" />
             </div>
-            <h2 className="font-display text-4xl font-bold text-content sm:text-5xl text-balance">
+            <h2 className="font-display text-3xl font-bold text-content sm:text-4xl lg:text-5xl text-balance">
               Meet the{' '}
               <span className="font-serif italic font-medium text-accent">team</span>
             </h2>
@@ -206,14 +207,17 @@ export default function About() {
                 <motion.div
                   variants={blobVariants}
                   animate="animate"
-                  className="absolute -right-20 -top-20 h-64 w-64 bg-glow-brand"
-                />
+                  className="absolute -right-10 -top-10 h-44 w-44 flex items-center justify-center bg-surface-sunken/80 backdrop-blur-sm overflow-hidden z-10"
+                  style={{ borderRadius: '42% 58% 70% 30% / 45% 45% 55% 55%' }}
+                >
+                  <CatMascot size={140} className="relative z-10" />
+                </motion.div>
                 <FloatingShapes />
                 <div className="relative">
                   <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-3xl bg-gradient-to-br from-brand to-accent shadow-lg shadow-glow-brand">
                     <Award className="h-8 w-8 text-white" />
                   </div>
-                  <h2 className="mt-8 font-display text-4xl font-bold text-content text-balance">
+                  <h2 className="mt-8 font-display text-3xl font-bold text-content sm:text-4xl lg:text-5xl text-balance">
                     Let's work{' '}
                     <span className="gradient-text">together</span>
                   </h2>

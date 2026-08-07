@@ -12,7 +12,10 @@ import TiltCard from '../components/TiltCard.jsx'
 import GridPattern from '../components/GridPattern.jsx'
 import OrbitalRings from '../components/OrbitalRings.jsx'
 import GradientBorderCard from '../components/GradientBorderCard.jsx'
+import CatMascot from '../components/CatMascot.jsx'
 import TextReveal from '../components/TextReveal.jsx'
+import Cat from '../components/Cat.jsx'
+import MindMap from '../components/MindMap.jsx'
 import HeroBackground from '../components/HeroBackground.jsx'
 
 const blobVariants = {
@@ -46,27 +49,35 @@ export default function Home() {
   return (
     <div className="noise-bg">
       {/* ===== HERO ===== */}
-      <section className="relative overflow-hidden pt-36 pb-24 lg:pt-44">
-        <HeroBackground />
+      <section className="relative min-h-svh pt-28 pb-16 sm:pt-36 sm:pb-24 lg:pt-44">
+        {/* Background — clipped to section */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <HeroBackground />
+        </div>
 
-        <div className="container-max relative px-4 sm:px-6 lg:px-8">
+        {/* Full-section canvas overlays — Cat (left) and MindMap/table (right) */}
+        <MindMap />
+        <Cat />
+
+        <div className="relative min-h-[calc(100svh-14rem)] flex items-center">
+          <div className="container-max px-4 sm:px-6 lg:px-8 w-full">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="mx-auto max-w-4xl text-center"
+            className="mx-auto max-w-xl text-center"
           >
             <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-line-strong bg-surface-elevated/50 px-5 py-2.5 text-sm font-medium text-brand backdrop-blur-sm">
               <Sparkles className="h-4 w-4" />
               Full-Featured Web Development Services
             </div>
 
-            <h1 className="font-display text-5xl font-extrabold leading-[1.05] text-content sm:text-6xl lg:text-7xl text-balance">
-              We craft{' '}
+            <h1 className="font-display text-4xl font-extrabold leading-[1.05] text-content sm:text-5xl lg:text-7xl text-balance">
+              We knit together <br />
               <span className="gradient-text">digital experiences</span>
               <br />
-              that{' '}
-              <span className="font-serif italic font-medium text-accent">feel alive</span>
+              that feel{' '}
+              <span className="fuzzy-warm-alive block mt-2 sm:inline sm:mt-0">warm and alive</span>
             </h1>
 
             <p className="mx-auto mt-8 max-w-2xl text-lg leading-relaxed text-content-muted text-pretty">
@@ -93,8 +104,10 @@ export default function Home() {
               ))}
             </div>
           </motion.div>
+          </div>
         </div>
       </section>
+
 
       {/* ===== STATS ===== */}
       <section className="relative border-y border-line bg-surface-sunken/50 overflow-hidden">
@@ -110,7 +123,7 @@ export default function Home() {
                 transition={{ duration: 0.5, delay: i * 0.1 }}
                 className="text-center"
               >
-                <div className="font-display text-5xl font-extrabold gradient-text">
+                <div className="font-display text-3xl font-extrabold gradient-text sm:text-4xl lg:text-5xl">
                   {stat.value}
                 </div>
                 <div className="mt-2 text-sm text-content-muted">{stat.label}</div>
@@ -132,7 +145,7 @@ export default function Home() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
               >
-                <h2 className="font-display text-4xl font-bold leading-tight text-content sm:text-5xl text-balance">
+                <h2 className="font-display text-3xl font-bold leading-tight text-content sm:text-4xl lg:text-5xl text-balance">
                   <TextReveal text="Choose your" />
                   <br />
                   <span className="gradient-text">
@@ -178,7 +191,7 @@ export default function Home() {
 
         <div className="container-max relative">
           <div className="mx-auto max-w-2xl text-center">
-            <h2 className="font-display text-4xl font-bold text-content sm:text-5xl text-balance">
+            <h2 className="font-display text-3xl font-bold text-content sm:text-4xl lg:text-5xl text-balance">
               Our <span className="gradient-text">process</span>
             </h2>
             <p className="mt-4 text-lg text-content-muted text-pretty">
@@ -222,7 +235,7 @@ export default function Home() {
           <ParallaxSection speed={0.3}>
             <div className="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end">
               <div>
-                <h2 className="font-display text-4xl font-bold text-content sm:text-5xl text-balance">
+                <h2 className="font-display text-3xl font-bold text-content sm:text-4xl lg:text-5xl text-balance">
                   Featured{' '}
                   <span className="font-serif italic font-medium text-accent">projects</span>
                 </h2>
@@ -287,7 +300,7 @@ export default function Home() {
 
         <div className="container-max relative">
           <div className="mx-auto max-w-2xl text-center">
-            <h2 className="font-display text-4xl font-bold text-content sm:text-5xl text-balance">
+            <h2 className="font-display text-3xl font-bold text-content sm:text-4xl lg:text-5xl text-balance">
               What our{' '}
               <span className="gradient-text">clients say</span>
             </h2>
@@ -330,7 +343,7 @@ export default function Home() {
       </section>
 
       {/* ===== CTA ===== */}
-      <section className="section-padding">
+      <section id="contact-cta" className="section-padding">
         <div className="container-max">
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
@@ -339,7 +352,15 @@ export default function Home() {
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           >
             <GradientBorderCard className="rounded-[3rem]">
-              <div className="relative overflow-hidden rounded-[3rem] bg-surface-elevated p-12 text-center sm:p-20">
+              <div className="relative overflow-hidden rounded-[3rem] bg-surface-elevated p-8 text-center sm:p-16 lg:p-20">
+                <motion.div
+                  variants={blobVariants}
+                  animate="animate"
+                  className="absolute -right-10 -top-10 h-44 w-44 flex items-center justify-center bg-surface-sunken/80 backdrop-blur-sm overflow-hidden z-10"
+                  style={{ borderRadius: '42% 58% 70% 30% / 45% 45% 55% 55%' }}
+                >
+                  <CatMascot size={140} className="relative z-10" />
+                </motion.div>
                 <AnimatedOrb className="right-[5%] top-[10%]" size="h-56 w-56" color="brand" delay={2} />
                 <AnimatedOrb className="left-[5%] bottom-[10%]" size="h-48 w-48" color="accent" delay={5} />
                 <FloatingShapes />
@@ -348,7 +369,7 @@ export default function Home() {
                   <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-3xl bg-gradient-to-br from-brand to-accent shadow-lg shadow-glow-brand">
                     <Rocket className="h-8 w-8 text-white" />
                   </div>
-                  <h2 className="mt-8 font-display text-4xl font-bold text-content sm:text-5xl text-balance">
+                  <h2 className="mt-8 font-display text-3xl font-bold text-content sm:text-4xl lg:text-5xl text-balance">
                     Ready to build something{' '}
                     <span className="font-serif italic font-medium text-accent">amazing?</span>
                   </h2>

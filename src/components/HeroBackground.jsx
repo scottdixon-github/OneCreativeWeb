@@ -53,11 +53,11 @@ export default function HeroBackground() {
 
       {/* Aurora glow orbs */}
       <motion.div
-        className="absolute left-[10%] top-[15%] h-[500px] w-[500px] rounded-full opacity-60 blur-[100px]"
+        className="absolute left-[10%] top-[15%] h-[250px] w-[250px] rounded-full opacity-60 blur-[60px] sm:h-[350px] sm:w-[350px] sm:blur-[80px] lg:h-[500px] lg:w-[500px] lg:blur-[100px]"
         style={{
           background: isDark
-            ? 'radial-gradient(circle, rgba(99, 102, 241, 0.3) 0%, transparent 70%)'
-            : 'radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, transparent 70%)',
+            ? 'radial-gradient(circle, rgba(239, 68, 68, 0.3) 0%, transparent 70%)'
+            : 'radial-gradient(circle, rgba(239, 68, 68, 0.15) 0%, transparent 70%)',
         }}
         animate={{
           scale: [1, 1.1, 0.95, 1],
@@ -65,11 +65,11 @@ export default function HeroBackground() {
         transition={{ duration: 20, repeat: Infinity, ease: 'easeInOut' }}
       />
       <motion.div
-        className="absolute right-[5%] top-[30%] h-[400px] w-[400px] rounded-full opacity-50 blur-[80px]"
+        className="absolute right-[5%] top-[30%] h-[200px] w-[200px] rounded-full opacity-50 blur-[50px] sm:h-[300px] sm:w-[300px] sm:blur-[70px] lg:h-[400px] lg:w-[400px] lg:blur-[80px]"
         style={{
           background: isDark
-            ? 'radial-gradient(circle, rgba(45, 212, 191, 0.2) 0%, transparent 70%)'
-            : 'radial-gradient(circle, rgba(45, 212, 191, 0.1) 0%, transparent 70%)',
+            ? 'radial-gradient(circle, rgba(34, 197, 94, 0.2) 0%, transparent 70%)'
+            : 'radial-gradient(circle, rgba(34, 197, 94, 0.1) 0%, transparent 70%)',
         }}
         animate={{
           scale: [1, 0.9, 1.05, 1],
@@ -77,11 +77,11 @@ export default function HeroBackground() {
         transition={{ duration: 18, repeat: Infinity, ease: 'easeInOut', delay: 5 }}
       />
       <motion.div
-        className="absolute left-[40%] bottom-[10%] h-[350px] w-[350px] rounded-full opacity-40 blur-[90px]"
+        className="absolute left-[40%] bottom-[10%] h-[180px] w-[180px] rounded-full opacity-40 blur-[50px] sm:h-[250px] sm:w-[250px] sm:blur-[70px] lg:h-[350px] lg:w-[350px] lg:blur-[90px]"
         style={{
           background: isDark
-            ? 'radial-gradient(circle, rgba(168, 85, 247, 0.15) 0%, transparent 70%)'
-            : 'radial-gradient(circle, rgba(168, 85, 247, 0.08) 0%, transparent 70%)',
+            ? 'radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, transparent 70%)'
+            : 'radial-gradient(circle, rgba(59, 130, 246, 0.08) 0%, transparent 70%)',
         }}
         animate={{
           scale: [1, 1.05, 0.9, 1],

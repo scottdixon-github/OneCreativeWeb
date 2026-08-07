@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -59,10 +60,10 @@
 
 @layer components {
   .btn-primary {
-    @apply inline-flex items-center justify-center gap-2 rounded-full bg-brand px-7 py-3.5 font-semibold text-white shadow-lg shadow-glow-brand transition-all duration-300 hover:scale-105 hover:shadow-xl active:scale-95;
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-brand px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-glow-brand transition-all duration-300 hover:scale-105 hover:shadow-xl active:scale-95 sm:px-7 sm:py-3.5 sm:text-base;
   }
   .btn-secondary {
-    @apply inline-flex items-center justify-center gap-2 rounded-full border border-line-strong bg-surface-elevated px-7 py-3.5 font-semibold text-content transition-all duration-300 hover:border-brand hover:text-brand hover:scale-105 active:scale-95;
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-line-strong bg-surface-elevated px-5 py-3 text-sm font-semibold text-content transition-all duration-300 hover:border-brand hover:text-brand hover:scale-105 active:scale-95 sm:px-7 sm:py-3.5 sm:text-base;
   }
   .btn-ghost {
     @apply inline-flex items-center justify-center gap-2 rounded-full px-5 py-2.5 font-medium text-content-muted transition-all duration-300 hover:text-brand hover:bg-glow-brand;
@@ -74,7 +75,7 @@
     @apply rounded-[2.5rem] border border-line bg-surface-elevated transition-all duration-500;
   }
   .section-padding {
-    @apply px-4 py-24 sm:px-6 lg:px-8;
+    @apply px-4 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-24;
   }
   .container-max {
     @apply mx-auto max-w-7xl;
@@ -152,4 +153,28 @@
 /* Theme transition */
 .theme-transition * {
   transition: background-color 0.4s ease, border-color 0.4s ease, color 0.4s ease;
+}
+
+/* Cloud float animation */
+@keyframes cloud-float {
+  0%, 100% { transform: translate(-50%, -100%) translateY(0); }
+  50% { transform: translate(-50%, -100%) translateY(-6px); }
+}
+
+/* Fuzzy warm text glow animation */
+.fuzzy-warm-alive {
+  font-family: 'Comfortaa', cursive, sans-serif;
+  font-weight: 700;
+  background: linear-gradient(135deg, #ff9e6d 0%, #ff6f4c 50%, #d94116 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: warm-pulse 3s ease-in-out infinite;
+}
+@keyframes warm-pulse {
+  0%, 100% {
+    filter: drop-shadow(0 0 3px rgba(255, 111, 76, 0.45));
+  }
+  50% {
+    filter: drop-shadow(0 0 10px rgba(255, 111, 76, 0.95));
+  }
 }

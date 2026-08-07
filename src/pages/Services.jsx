@@ -27,7 +27,7 @@ export default function Services() {
               <Layers className="h-4 w-4" />
               Our Services
             </div>
-            <h1 className="font-display text-5xl font-extrabold leading-[1.05] text-content sm:text-6xl text-balance">
+            <h1 className="font-display text-4xl font-extrabold leading-[1.05] text-content sm:text-5xl lg:text-6xl text-balance">
               Full-featured{' '}
               <span className="gradient-text">web development</span>{' '}
               <span className="font-serif italic font-medium text-accent">services</span>
@@ -58,7 +58,7 @@ export default function Services() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="relative mt-20 overflow-hidden rounded-3xl border border-line bg-surface-elevated p-10 text-center sm:p-14"
+            className="relative mt-20 overflow-hidden rounded-3xl border border-line bg-surface-elevated p-8 text-center sm:p-14"
           >
             <AnimatedOrb className="right-[5%] top-[10%]" size="h-40 w-40" color="brand" delay={2} />
             <div className="relative">

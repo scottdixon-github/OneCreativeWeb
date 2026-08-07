@@ -10,6 +10,7 @@ import FloatingShapes from '../components/FloatingShapes.jsx'
 import AnimatedOrb from '../components/AnimatedOrb.jsx'
 import TiltCard from '../components/TiltCard.jsx'
 import GradientBorderCard from '../components/GradientBorderCard.jsx'
+import CatMascot from '../components/CatMascot.jsx'
 
 const blobVariants = {
   animate: {
@@ -102,8 +103,11 @@ export default function ServiceDetail() {
                   <motion.div
                     variants={blobVariants}
                     animate="animate"
-                    className="absolute -right-12 -top-12 h-40 w-40 bg-glow-brand"
-                  />
+                    className="absolute -right-8 -top-8 h-32 w-32 flex items-center justify-center bg-surface-sunken/80 backdrop-blur-sm overflow-hidden z-10"
+                    style={{ borderRadius: '42% 58% 70% 30% / 45% 45% 55% 55%' }}
+                  >
+                    <CatMascot size={100} className="relative z-10" />
+                  </motion.div>
                   <div className="relative">
                     <h3 className="font-display text-xl font-bold text-content">What's Included</h3>
                     <ul className="mt-6 space-y-4">

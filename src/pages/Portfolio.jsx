@@ -7,6 +7,7 @@ import FloatingShapes from '../components/FloatingShapes.jsx'
 import AnimatedOrb from '../components/AnimatedOrb.jsx'
 import TiltCard from '../components/TiltCard.jsx'
 import GradientBorderCard from '../components/GradientBorderCard.jsx'
+import CatMascot from '../components/CatMascot.jsx'
 
 const blobVariants = {
   animate: {
@@ -40,7 +41,7 @@ export default function Portfolio() {
               <Briefcase className="h-4 w-4" />
               Our Work
             </div>
-            <h1 className="font-display text-5xl font-extrabold leading-[1.05] text-content sm:text-6xl text-balance">
+            <h1 className="font-display text-4xl font-extrabold leading-[1.05] text-content sm:text-5xl lg:text-6xl text-balance">
               Our{' '}
               <span className="gradient-text">portfolio</span>
             </h1>
@@ -97,12 +98,15 @@ export default function Portfolio() {
             transition={{ duration: 0.6 }}
           >
             <GradientBorderCard className="mt-20 rounded-[3rem]">
-              <div className="relative overflow-hidden rounded-[3rem] bg-surface-elevated p-12 text-center sm:p-16">
+              <div className="relative overflow-hidden rounded-[3rem] bg-surface-elevated p-8 text-center sm:p-16">
                 <motion.div
                   variants={blobVariants}
                   animate="animate"
-                  className="absolute -right-16 -top-16 h-56 w-56 bg-glow-brand"
-                />
+                  className="absolute -right-10 -top-10 h-44 w-44 flex items-center justify-center bg-surface-sunken/80 backdrop-blur-sm overflow-hidden z-10"
+                  style={{ borderRadius: '42% 58% 70% 30% / 45% 45% 55% 55%' }}
+                >
+                  <CatMascot size={140} className="relative z-10" />
+                </motion.div>
                 <motion.div
                   variants={blobVariants}
                   animate="animate"
