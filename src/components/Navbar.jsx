@@ -46,7 +46,7 @@ export default function Navbar() {
             <Code2 className="h-5 w-5 text-white" />
           </div>
           <span className="font-display text-xl font-bold text-content">
-            Creative<span className="gradient-text">Web</span>
+            Creative<span className="gradient-text">Web</span> <span className="text-sm font-semibold text-brand">Inc.</span>
           </span>
         </Link>
 
