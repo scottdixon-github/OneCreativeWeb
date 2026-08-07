@@ -74,8 +74,8 @@ export default function Contact() {
 
   const contactInfo = [
     { icon: Mail, label: 'Email', value: 'hello@onecreativeweb.com', href: 'mailto:hello@onecreativeweb.com' },
-    { icon: Phone, label: 'Phone', value: '+1 (555) 123-4567', href: 'tel:+15551234567' },
-    { icon: MapPin, label: 'Location', value: 'San Francisco, CA', href: 'https://www.google.com/maps/search/?api=1&query=San+Francisco,CA' },
+    { icon: Phone, label: 'Phone', value: '(312) 956-7549', href: 'tel:+13129567549' },
+    { icon: MapPin, label: 'Location', value: 'Charleston, SC', href: 'https://www.google.com/maps/search/?api=1&query=Charleston,SC' },
   ]
 
   const inputClass =

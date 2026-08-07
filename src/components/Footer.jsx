@@ -99,11 +99,11 @@ export default function Footer() {
               </li>
               <li className="flex items-center gap-3 text-sm font-medium text-content-muted">
                 <Phone className="h-4 w-4 text-brand" />
-                +1 (555) 123-4567
+                (312) 956-7549
               </li>
               <li className="flex items-center gap-3 text-sm font-medium text-content-muted">
                 <MapPin className="h-4 w-4 text-brand" />
-                San Francisco, CA
+                Charleston, South Carolina
               </li>
             </ul>
           </div>
