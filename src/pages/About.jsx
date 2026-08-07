@@ -1,9 +1,8 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import {
-  Users, Target, Heart, Zap, ArrowRight, Code2, Palette, Rocket, ShieldCheck, Award,
+  Users, Target, Heart, Zap, ArrowRight, ShieldCheck, Award,
 } from 'lucide-react'
-import { stats } from '../data/services.js'
 import ParticleField from '../components/ParticleField.jsx'
 import FloatingShapes from '../components/FloatingShapes.jsx'
 import AnimatedOrb from '../components/AnimatedOrb.jsx'
@@ -29,13 +28,6 @@ export default function About() {
     { icon: Heart, title: 'Client-Centric', description: 'Your success is our success. We go above and beyond to deliver results that matter.' },
     { icon: Zap, title: 'Innovation First', description: 'We stay at the cutting edge of web technologies to give you a competitive edge.' },
     { icon: ShieldCheck, title: 'Quality Guaranteed', description: 'Every project meets our rigorous standards for performance, security, and design.' },
-  ]
-
-  const team = [
-    { name: 'Alex Thompson', role: 'Founder & Lead Developer', icon: Code2 },
-    { name: 'Maya Patel', role: 'Head of Design', icon: Palette },
-    { name: 'Jordan Lee', role: 'Senior Full-Stack Engineer', icon: Zap },
-    { name: 'Sam Rivera', role: 'Project Manager', icon: Rocket },
   ]
 
   return (
@@ -163,53 +155,6 @@ export default function About() {
                       </div>
                       <h3 className="mt-6 font-display text-lg font-bold text-content">{value.title}</h3>
                       <p className="mt-2 text-sm text-content-muted text-pretty">{value.description}</p>
-                    </div>
-                  </TiltCard>
-                </motion.div>
-              )
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* Team */}
-      <section className="relative overflow-hidden border-y border-line bg-surface-sunken/50 section-padding">
-        <AnimatedOrb className="left-[5%] bottom-[10%]" size="h-64 w-64" color="accent" delay={5} />
-        <AnimatedOrb className="right-[10%] top-[15%]" size="h-40 w-40" color="brand" delay={1} />
-        <div className="container-max relative">
-          <div className="mx-auto max-w-2xl text-center">
-            <div className="mb-4 flex items-center justify-center gap-3">
-              <div className="h-px w-12 bg-brand" />
-              <span className="text-sm font-semibold uppercase tracking-wider text-brand">
-                The People
-              </span>
-              <div className="h-px w-12 bg-brand" />
-            </div>
-            <h2 className="font-display text-3xl font-bold text-content sm:text-4xl lg:text-5xl text-balance">
-              Meet the{' '}
-              <span className="font-serif italic font-medium text-accent">team</span>
-            </h2>
-          </div>
-
-          <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {team.map((member, i) => {
-              const MemberIcon = member.icon
-              return (
-                <motion.div
-                  key={member.name}
-                  initial={{ opacity: 0, y: 40 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: i * 0.08 }}
-                  className={i % 2 === 1 ? 'lg:mt-8' : ''}
-                >
-                  <TiltCard intensity={6}>
-                    <div className="card-organic p-8 text-center">
-                      <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-[1.75rem] bg-gradient-to-br from-brand to-accent shadow-lg shadow-glow-brand">
-                        <MemberIcon className="h-9 w-9 text-white" />
-                      </div>
-                      <h3 className="mt-6 font-display text-lg font-bold text-content">{member.name}</h3>
-                      <p className="mt-1 text-sm text-brand">{member.role}</p>
                     </div>
                   </TiltCard>
                 </motion.div>
