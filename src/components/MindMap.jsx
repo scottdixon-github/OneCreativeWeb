@@ -265,9 +265,9 @@ export default function MindMap() {
     const isDark = theme === 'dark'
 
     const resize = () => {
-      const w = window.innerWidth
       const section = canvas.parentElement
-      const h = section ? section.clientHeight || window.innerHeight : window.innerHeight
+      const w = section ? section.clientWidth : window.innerWidth
+      const h = section ? section.clientHeight : window.innerHeight
       dimensionsRef.current = { width: w, height: h }
       const dpr = Math.min(window.devicePixelRatio, 2)
       canvas.width = w * dpr

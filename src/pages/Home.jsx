@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { motion, useScroll, useTransform } from 'framer-motion'
-import { useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import {
   ArrowRight, Sparkles, Star, Check, Quote, Rocket,
 } from 'lucide-react'
@@ -46,6 +46,16 @@ function ParallaxSection({ children, speed = 0.5, className = '' }) {
 }
 
 export default function Home() {
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    const m = window.matchMedia('(max-width: 767px)')
+    const on = (e) => setIsMobile(e.matches)
+    setIsMobile(m.matches)
+    m.addEventListener('change', on)
+    return () => m.removeEventListener('change', on)
+  }, [])
+
   return (
     <div className="noise-bg">
       {/* ===== HERO ===== */}
@@ -56,8 +66,19 @@ export default function Home() {
         </div>
 
         {/* Full-section canvas overlays — Cat (left) and MindMap/table (right) */}
-        <MindMap />
-        <Cat />
+        {!isMobile && (
+          <>
+            <MindMap />
+            <Cat />
+          </>
+        )}
+
+        {isMobile && (
+          <div className="relative z-10 h-56 w-full overflow-hidden">
+            <MindMap />
+            <Cat />
+          </div>
+        )}
 
         <div className="relative min-h-[calc(100svh-14rem)] flex items-center">
           <div className="container-max px-4 sm:px-6 lg:px-8 w-full">
