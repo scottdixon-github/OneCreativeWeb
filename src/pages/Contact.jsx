@@ -59,15 +59,55 @@ export default function Contact() {
     budget: '',
     message: '',
   })
+  const [submitting, setSubmitting] = useState(false)
   const [submitted, setSubmitted] = useState(false)
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value })
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    setSubmitted(true)
+    setSubmitting(true)
+
+    try {
+      // Send form data via Formspree endpoint pointing to hello@onecreativeweb.com
+      const res = await fetch('https://formspree.io/f/hello@onecreativeweb.com', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        },
+        body: JSON.stringify({
+          name: form.name,
+          email: form.email,
+          company: form.company || 'N/A',
+          service: form.service,
+          budget: form.budget || 'Not specified',
+          message: form.message,
+          _subject: `New Project Inquiry from ${form.name}`,
+        }),
+      })
+
+      if (!res.ok) {
+        // Fallback to mailto link if form service is unconfigured
+        const subject = encodeURIComponent(`Project Inquiry: ${form.service || 'Web Development'}`)
+        const body = encodeURIComponent(
+          `Name: ${form.name}\nEmail: ${form.email}\nCompany: ${form.company}\nService: ${form.service}\nBudget: ${form.budget}\n\nMessage:\n${form.message}`
+        )
+        window.location.href = `mailto:hello@onecreativeweb.com?subject=${subject}&body=${body}`
+      }
+    } catch (err) {
+      // Fallback to mailto link
+      const subject = encodeURIComponent(`Project Inquiry: ${form.service || 'Web Development'}`)
+      const body = encodeURIComponent(
+        `Name: ${form.name}\nEmail: ${form.email}\nCompany: ${form.company}\nService: ${form.service}\nBudget: ${form.budget}\n\nMessage:\n${form.message}`
+      )
+      window.location.href = `mailto:hello@onecreativeweb.com?subject=${subject}&body=${body}`
+    } finally {
+      setSubmitting(false)
+      setSubmitted(true)
+    }
   }
 
   const budgets = ['< $2,500', '$2,500 – $5,000', '$5,000 – $10,000', '$10,000 – $25,000', '$25,000+']
@@ -352,8 +392,8 @@ export default function Contact() {
                       />
                     </div>
 
-                    <button type="submit" className="btn-primary w-full">
-                      Send Message
+                    <button type="submit" disabled={submitting} className="btn-primary w-full disabled:opacity-60">
+                      {submitting ? 'Sending...' : 'Send Message'}
                       <Send className="h-4 w-4" />
                     </button>
                   </form>
