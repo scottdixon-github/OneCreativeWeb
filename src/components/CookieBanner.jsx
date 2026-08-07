@@ -25,7 +25,7 @@ export default function CookieBanner() {
 
   return (
     <div className="fixed inset-x-0 bottom-0 z-50 p-4 sm:p-6">
-      <div className="mx-auto max-w-4xl rounded-2xl border border-line bg-surface-elevated/95 p-5 shadow-2xl backdrop-blur-md">
+      <div className="mx-auto max-w-4xl rounded-2xl border border-line bg-surface-elevated p-5 shadow-2xl">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           <div className="space-y-1">
             <h2 className="font-display text-sm font-bold text-content">Cookie Preferences</h2>
