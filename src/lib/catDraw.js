@@ -99,6 +99,7 @@ export function drawCatBody(ctx, opts) {
     eyesOpen = true,
     earTwitch = 0,
     shadow = true,
+    pawReach = 0,
   } = opts
 
   const { orange, orangeLight, stripe, cream, innerEar, pink, amber, dark } = catPalette(isDark)
@@ -146,12 +147,18 @@ export function drawCatBody(ctx, opts) {
   const stepL = Math.sin(t * walkFreq) * stepAmp
   const stepR = Math.sin(t * walkFreq + Math.PI) * stepAmp
 
-  fluffyEllipse(ctx, -11, 40 + stepL, 9, 20, orangeLight, 17)
+  // Left leg/paw with optional pawing reach animation
+  const pawL_x = -11 - pawReach * 35
+  const pawL_y = 40 + stepL - pawReach * 32
+  const pawTipL_x = -12 - pawReach * 46
+  const pawTipL_y = 56 + stepR * 0.6 - pawReach * 38
+
+  fluffyEllipse(ctx, pawL_x, pawL_y, 9, 20, orangeLight, 17)
   fluffyEllipse(ctx, 11, 40 + stepR, 9, 20, orangeLight, 21)
-  drawStripe(ctx, -11, 30 + stepL, 6, 5, stripe, 0.45)
+  drawStripe(ctx, pawL_x, 30 + stepL - pawReach * 20, 6, 5, stripe, 0.45)
   drawStripe(ctx, 11, 30 + stepR, 6, 5, stripe, 0.45)
 
-  fluffyEllipse(ctx, -12, 56 + stepR * 0.6, 11, 7, cream, 25)
+  fluffyEllipse(ctx, pawTipL_x, pawTipL_y, 11, 7, cream, 25)
   fluffyEllipse(ctx, 12, 56 + stepL * 0.6, 11, 7, cream, 29)
 
   ctx.save()

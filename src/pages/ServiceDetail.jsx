@@ -100,14 +100,23 @@ export default function ServiceDetail() {
             >
               <GradientBorderCard className="card-organic rounded-[2.5rem]">
                 <div className="card-organic relative overflow-hidden p-8 rounded-[2.5rem]">
-                  <motion.div
-                    variants={blobVariants}
-                    animate="animate"
-                    className="absolute -right-8 -top-8 h-32 w-32 flex items-center justify-center bg-surface-sunken/80 backdrop-blur-sm overflow-hidden z-10"
-                    style={{ borderRadius: '42% 58% 70% 30% / 45% 45% 55% 55%' }}
-                  >
-                    <CatMascot size={100} className="relative z-10" />
-                  </motion.div>
+                  <div className="absolute -right-8 -top-8 flex items-center gap-1.5 z-10">
+                    {/* Decorative circle target to the left of the cat */}
+                    <motion.div
+                      animate={{ scale: [1, 1.15, 1], rotate: [0, 180, 360] }}
+                      transition={{ duration: 3.5, repeat: Infinity, ease: 'easeInOut' }}
+                      className="h-8 w-8 rounded-full border-2 border-brand/60 bg-gradient-to-br from-brand/30 to-accent/30 backdrop-blur-sm shadow-md shadow-glow-brand"
+                    />
+                    {/* Organic blob container housing the pawing cat mascot */}
+                    <motion.div
+                      variants={blobVariants}
+                      animate="animate"
+                      className="h-32 w-32 flex items-center justify-center bg-surface-sunken/80 backdrop-blur-sm overflow-hidden"
+                      style={{ borderRadius: '42% 58% 70% 30% / 45% 45% 55% 55%' }}
+                    >
+                      <CatMascot size={100} className="relative z-10" />
+                    </motion.div>
+                  </div>
                   <div className="relative">
                     <h3 className="font-display text-xl font-bold text-content">What's Included</h3>
                     <ul className="mt-6 space-y-4">

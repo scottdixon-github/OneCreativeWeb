@@ -64,6 +64,9 @@ export default function CatMascot({ size = 120, className = '' }) {
       const earTwitch =
         t < twitch.until ? Math.sin((t - (twitch.until - 0.35)) * 28) * 0.15 : 0
 
+      // Pawing animation — rhythmically reaching outward towards the circle to the left
+      const pawReach = (Math.sin(t * 3.2) * 0.5 + 0.5) * 0.85
+
       ctx.clearRect(0, 0, displaySize, displaySize)
       // The cat spans roughly -80..+72 vertically at scale 1.
       const scale = displaySize / 152
@@ -75,11 +78,12 @@ export default function CatMascot({ size = 120, className = '' }) {
         isDark,
         walkProgress: 1,
         walking: false,
-        lookDX: lookRef.current.x,
+        lookDX: -1.8, // Look left towards the circle
         lookDY: lookRef.current.y,
         eyesOpen: t > blink.until,
         earTwitch,
         shadow: false,
+        pawReach,
       })
     }
 

@@ -99,14 +99,23 @@ export default function Portfolio() {
           >
             <GradientBorderCard className="mt-20 rounded-[3rem]">
               <div className="relative overflow-hidden rounded-[3rem] bg-surface-elevated p-8 text-center sm:p-16">
-                <motion.div
-                  variants={blobVariants}
-                  animate="animate"
-                  className="absolute -right-10 -top-10 h-44 w-44 flex items-center justify-center bg-surface-sunken/80 backdrop-blur-sm overflow-hidden z-10"
-                  style={{ borderRadius: '42% 58% 70% 30% / 45% 45% 55% 55%' }}
-                >
-                  <CatMascot size={140} className="relative z-10" />
-                </motion.div>
+                <div className="absolute -right-10 -top-10 flex items-center gap-2 z-10">
+                  {/* Decorative circle target to the left of the cat */}
+                  <motion.div
+                    animate={{ scale: [1, 1.15, 1], rotate: [0, 180, 360] }}
+                    transition={{ duration: 3.5, repeat: Infinity, ease: 'easeInOut' }}
+                    className="h-10 w-10 rounded-full border-2 border-brand/60 bg-gradient-to-br from-brand/30 to-accent/30 backdrop-blur-sm shadow-md shadow-glow-brand"
+                  />
+                  {/* Organic blob container housing the pawing cat mascot */}
+                  <motion.div
+                    variants={blobVariants}
+                    animate="animate"
+                    className="h-44 w-44 flex items-center justify-center bg-surface-sunken/80 backdrop-blur-sm overflow-hidden"
+                    style={{ borderRadius: '42% 58% 70% 30% / 45% 45% 55% 55%' }}
+                  >
+                    <CatMascot size={140} className="relative z-10" />
+                  </motion.div>
+                </div>
                 <motion.div
                   variants={blobVariants}
                   animate="animate"
