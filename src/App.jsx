@@ -9,6 +9,7 @@ import ServiceDetail from './pages/ServiceDetail.jsx'
 import Portfolio from './pages/Portfolio.jsx'
 import About from './pages/About.jsx'
 import Contact from './pages/Contact.jsx'
+import CookieBanner from './components/CookieBanner.jsx'
 
 export default function App() {
   return (
@@ -27,6 +28,7 @@ export default function App() {
         </Routes>
       </main>
       <Footer />
+      <CookieBanner />
     </div>
   )
 }
