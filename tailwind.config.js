@@ -57,6 +57,7 @@ export default {
         'blob-slow': 'blob 20s ease-in-out infinite',
         'spin-slow': 'spin 30s linear infinite',
         'marquee': 'marquee 40s linear infinite',
+        'marquee-reverse': 'marqueeReverse 30s linear infinite',
       },
       keyframes: {
         fadeIn: {
@@ -83,6 +84,10 @@ export default {
         marquee: {
           '0%': { transform: 'translateX(0)' },
           '100%': { transform: 'translateX(-50%)' },
+        },
+        marqueeReverse: {
+          '0%': { transform: 'translateX(-50%)' },
+          '100%': { transform: 'translateX(0)' },
         },
       },
     },

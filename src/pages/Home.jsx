@@ -130,26 +130,53 @@ export default function Home() {
       </section>
 
 
-      {/* ===== STATS ===== */}
-      <section className="relative border-y border-line bg-surface-sunken/50 overflow-hidden">
+      {/* ===== STATS TICKER BAND ===== */}
+      <section className="relative border-y border-line bg-surface-sunken/80 overflow-hidden py-3">
         <GridPattern dotSize={1.5} gap={32} />
-        <div className="container-max relative px-4 py-14 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 gap-8 lg:grid-cols-4">
-            {stats.map((stat, i) => (
-              <motion.div
-                key={stat.label}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="text-center"
-              >
-                <div className="font-display text-3xl font-extrabold gradient-text sm:text-4xl lg:text-5xl">
-                  {stat.value}
-                </div>
-                <div className="mt-2 text-sm text-content-muted">{stat.label}</div>
-              </motion.div>
-            ))}
+        <div className="flex w-full overflow-hidden select-none whitespace-nowrap">
+          <div className="flex shrink-0 animate-marquee-reverse items-center justify-around gap-12 font-display text-sm font-bold uppercase tracking-wider text-content">
+            <span className="flex items-center gap-2.5">
+              <span className="text-brand">Hundreds of</span> Projects Delivered
+            </span>
+            <span className="text-accent">•</span>
+            <span className="flex items-center gap-2.5">
+              <span className="text-brand">98%</span> Client Satisfaction
+            </span>
+            <span className="text-accent">•</span>
+            <span className="flex items-center gap-2.5">
+              <span className="text-brand">5 plus</span> Years Experience
+            </span>
+            <span className="text-accent">•</span>
+          </div>
+
+          <div aria-hidden="true" className="flex shrink-0 animate-marquee-reverse items-center justify-around gap-12 font-display text-sm font-bold uppercase tracking-wider text-content">
+            <span className="flex items-center gap-2.5">
+              <span className="text-brand">Hundreds of</span> Projects Delivered
+            </span>
+            <span className="text-accent">•</span>
+            <span className="flex items-center gap-2.5">
+              <span className="text-brand">98%</span> Client Satisfaction
+            </span>
+            <span className="text-accent">•</span>
+            <span className="flex items-center gap-2.5">
+              <span className="text-brand">5 plus</span> Years Experience
+            </span>
+            <span className="text-accent">•</span>
+          </div>
+
+          <div aria-hidden="true" className="flex shrink-0 animate-marquee-reverse items-center justify-around gap-12 font-display text-sm font-bold uppercase tracking-wider text-content">
+            <span className="flex items-center gap-2.5">
+              <span className="text-brand">Hundreds of</span> Projects Delivered
+            </span>
+            <span className="text-accent">•</span>
+            <span className="flex items-center gap-2.5">
+              <span className="text-brand">98%</span> Client Satisfaction
+            </span>
+            <span className="text-accent">•</span>
+            <span className="flex items-center gap-2.5">
+              <span className="text-brand">5 plus</span> Years Experience
+            </span>
+            <span className="text-accent">•</span>
           </div>
         </div>
       </section>
