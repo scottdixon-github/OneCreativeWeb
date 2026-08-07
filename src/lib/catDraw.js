@@ -142,24 +142,47 @@ export function drawCatBody(ctx, opts) {
 
   fluffyEllipse(ctx, 0, 8, 26, 34 * breathe, cream, 13)
 
-  const walkFreq = 4 + walkProgress * 10
-  const stepAmp = walking ? walkProgress * 8 : 0
-  const stepL = Math.sin(t * walkFreq) * stepAmp
-  const stepR = Math.sin(t * walkFreq + Math.PI) * stepAmp
+  // Static leg positions on the ground
+  const legL_x = -16
+  const legL_y = 38
+  const legR_x = 16
+  const legR_y = 38
 
-  // Left leg/paw with optional pawing reach animation
-  const pawL_x = -11 - pawReach * 35
-  const pawL_y = 40 + stepL - pawReach * 32
-  const pawTipL_x = -12 - pawReach * 46
-  const pawTipL_y = 56 + stepR * 0.6 - pawReach * 38
+  // Right leg (sitting firmly)
+  fluffyEllipse(ctx, legR_x, legR_y, 9, 20, orangeLight, 21)
+  drawStripe(ctx, legR_x, 30, 6, 5, stripe, 0.45)
+  fluffyEllipse(ctx, 18, 56, 11, 7, cream, 29)
 
-  fluffyEllipse(ctx, pawL_x, pawL_y, 9, 20, orangeLight, 17)
-  fluffyEllipse(ctx, 11, 40 + stepR, 9, 20, orangeLight, 21)
-  drawStripe(ctx, pawL_x, 30 + stepL - pawReach * 20, 6, 5, stripe, 0.45)
-  drawStripe(ctx, 11, 30 + stepR, 6, 5, stripe, 0.45)
+  if (pawReach > 0.01) {
+    // Pawing arm pivoted at the shoulder (-16, -18) right below the head
+    const shoulderX = -16
+    const shoulderY = -18
+    const armAngle = -0.35 - pawReach * 0.95 // Pivots upward and outward toward left target
 
-  fluffyEllipse(ctx, pawTipL_x, pawTipL_y, 11, 7, cream, 25)
-  fluffyEllipse(ctx, 12, 56 + stepL * 0.6, 11, 7, cream, 29)
+    ctx.save()
+    ctx.translate(shoulderX, shoulderY)
+    ctx.rotate(armAngle)
+
+    // Upper arm extending from shoulder
+    fluffyEllipse(ctx, 0, 18, 9, 22, orangeLight, 17)
+    drawStripe(ctx, 0, 12, 6, 5, stripe, 0.45)
+    // Paw at end of arm
+    fluffyEllipse(ctx, -1, 38, 11, 7, cream, 25)
+
+    ctx.restore()
+
+    // Standing left foot remaining grounded below
+    fluffyEllipse(ctx, -18, 56, 9, 6, cream, 27)
+  } else {
+    // Normal resting left leg
+    const walkFreq = 4 + walkProgress * 10
+    const stepAmp = walking ? walkProgress * 8 : 0
+    const stepL = Math.sin(t * walkFreq) * stepAmp
+
+    fluffyEllipse(ctx, legL_x, legL_y + stepL, 9, 20, orangeLight, 17)
+    drawStripe(ctx, legL_x, 30 + stepL, 6, 5, stripe, 0.45)
+    fluffyEllipse(ctx, -16, 56 + stepL * 0.6, 11, 7, cream, 25)
+  }
 
   ctx.save()
   ctx.translate(0, -48 + headBob)
