@@ -55,7 +55,7 @@ export default function Navbar() {
             <Link
               key={link.path}
               to={link.path}
-              className={`relative rounded-full px-4 py-2 text-sm font-medium transition-colors duration-300 ${
+              className={`relative rounded-full px-4 py-2 text-sm font-semibold transition-colors duration-300 ${
                 location.pathname === link.path
                   ? 'text-brand'
                   : 'text-content-muted hover:text-content'

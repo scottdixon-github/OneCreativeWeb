@@ -33,7 +33,7 @@ export default function Footer() {
       <div className="absolute -right-20 bottom-0 h-48 w-48 rounded-full bg-glow-accent organic-blob-2 opacity-50" />
 
       <div className="container-max relative px-4 py-16 sm:px-6 lg:px-8">
-        <div className="grid gap-12 lg:grid-cols-4">
+        <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-4">
           <div className="lg:col-span-1">
             <Link to="/" className="flex items-center gap-2.5">
               <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-gradient-to-br from-brand to-accent">
@@ -43,7 +43,7 @@ export default function Footer() {
                 Creative<span className="gradient-text">Web</span>
               </span>
             </Link>
-            <p className="mt-4 max-w-xs text-sm leading-relaxed text-content-muted">
+            <p className="mt-4 max-w-xs text-sm font-medium leading-relaxed text-content-muted">
               Full-featured web development services. We build custom websites, apps, and
               e-commerce solutions that drive results.
             </p>
@@ -52,7 +52,7 @@ export default function Footer() {
                 <a
                   key={i}
                   href="#"
-                  className="flex h-10 w-10 items-center justify-center rounded-full border border-line text-content-muted transition-all hover:border-brand hover:text-brand hover:scale-110"
+                  className="flex h-10 w-10 items-center justify-center rounded-full border border-line-strong text-content-muted transition-all hover:border-brand hover:text-brand hover:scale-110"
                   aria-label="Social link"
                 >
                   <Icon className="h-4 w-4" />
@@ -63,7 +63,7 @@ export default function Footer() {
 
           {sections.map((section) => (
             <div key={section.title}>
-              <h3 className="font-display text-sm font-semibold uppercase tracking-wider text-content">
+              <h3 className="font-display text-sm font-bold uppercase tracking-wider text-content">
                 {section.title}
               </h3>
               <ul className="mt-4 space-y-3">
@@ -71,7 +71,7 @@ export default function Footer() {
                   <li key={link.name}>
                     <Link
                       to={link.path}
-                      className="text-sm text-content-muted transition-colors hover:text-brand"
+                      className="text-sm font-medium text-content-muted transition-colors hover:text-brand"
                     >
                       {link.name}
                     </Link>
@@ -82,19 +82,19 @@ export default function Footer() {
           ))}
 
           <div>
-            <h3 className="font-display text-sm font-semibold uppercase tracking-wider text-content">
+            <h3 className="font-display text-sm font-bold uppercase tracking-wider text-content">
               Get in Touch
             </h3>
             <ul className="mt-4 space-y-3">
-              <li className="flex items-center gap-3 text-sm text-content-muted">
+              <li className="flex items-center gap-3 text-sm font-medium text-content-muted">
                 <Mail className="h-4 w-4 text-brand" />
                 hello@creativeweb.inc
               </li>
-              <li className="flex items-center gap-3 text-sm text-content-muted">
+              <li className="flex items-center gap-3 text-sm font-medium text-content-muted">
                 <Phone className="h-4 w-4 text-brand" />
                 +1 (555) 123-4567
               </li>
-              <li className="flex items-center gap-3 text-sm text-content-muted">
+              <li className="flex items-center gap-3 text-sm font-medium text-content-muted">
                 <MapPin className="h-4 w-4 text-brand" />
                 San Francisco, CA
               </li>
@@ -103,14 +103,14 @@ export default function Footer() {
         </div>
 
         <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-line pt-8 sm:flex-row">
-          <p className="text-sm text-content-subtle">
+          <p className="text-sm font-medium text-content-muted">
             © {year} Creative Web Inc. All rights reserved.
           </p>
           <div className="flex gap-6">
-            <a href="#" className="text-sm text-content-subtle hover:text-brand">
+            <a href="#" className="text-sm font-medium text-content-muted hover:text-brand">
               Privacy Policy
             </a>
-            <a href="#" className="text-sm text-content-subtle hover:text-brand">
+            <a href="#" className="text-sm font-medium text-content-muted hover:text-brand">
               Terms of Service
             </a>
           </div>

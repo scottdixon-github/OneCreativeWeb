@@ -67,7 +67,7 @@ export default function Home() {
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             className="mx-auto max-w-xl text-center"
           >
-            <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-line-strong bg-surface-elevated/50 px-5 py-2.5 text-sm font-medium text-brand backdrop-blur-sm">
+            <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-line-strong bg-surface-elevated/80 px-5 py-2.5 text-sm font-semibold text-brand backdrop-blur-sm shadow-sm">
               <Sparkles className="h-4 w-4" />
               Full-Featured Web Development Services
             </div>
@@ -80,7 +80,7 @@ export default function Home() {
               <span className="fuzzy-warm-alive block mt-2 sm:inline sm:mt-0">warm and alive</span>
             </h1>
 
-            <p className="mx-auto mt-8 max-w-2xl text-lg leading-relaxed text-content-muted text-pretty">
+            <p className="mx-auto mt-8 max-w-2xl text-lg font-medium leading-relaxed text-content-muted text-pretty">
               Creative Web Inc. delivers custom websites, web applications, and e-commerce
               solutions tailored to your business. Choose from our full range of development
               services and let us bring your vision to life.
@@ -96,10 +96,10 @@ export default function Home() {
               </Link>
             </div>
 
-            <div className="mt-14 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-sm text-content-subtle">
+            <div className="mt-14 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-sm font-medium text-content-muted">
               {['90+ Lighthouse scores', '150+ projects delivered'].map((item) => (
                 <span key={item} className="flex items-center gap-2">
-                  <Check className="h-4 w-4 text-accent" /> {item}
+                  <Check className="h-4 w-4 text-accent stroke-[2.5]" /> {item}
                 </span>
               ))}
             </div>

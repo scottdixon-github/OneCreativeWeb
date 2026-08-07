@@ -22,11 +22,13 @@ export default function CatMascot({ size = 120, className = '' }) {
     const ctx = canvas.getContext('2d')
     const isDark = theme === 'dark'
 
+    const isMobile = window.innerWidth < 640
+    const displaySize = Math.min(size, isMobile ? 100 : size)
     const dpr = Math.min(window.devicePixelRatio, 2)
-    canvas.width = size * dpr
-    canvas.height = size * dpr
-    canvas.style.width = `${size}px`
-    canvas.style.height = `${size}px`
+    canvas.width = displaySize * dpr
+    canvas.height = displaySize * dpr
+    canvas.style.width = `${displaySize}px`
+    canvas.style.height = `${displaySize}px`
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0)
 
     const handleMouseMove = (e) => {
@@ -62,12 +64,12 @@ export default function CatMascot({ size = 120, className = '' }) {
       const earTwitch =
         t < twitch.until ? Math.sin((t - (twitch.until - 0.35)) * 28) * 0.15 : 0
 
-      ctx.clearRect(0, 0, size, size)
+      ctx.clearRect(0, 0, displaySize, displaySize)
       // The cat spans roughly -80..+72 vertically at scale 1.
-      const scale = size / 152
+      const scale = displaySize / 152
       drawCatBody(ctx, {
-        x: size / 2,
-        y: size * 0.56,
+        x: displaySize / 2,
+        y: displaySize * 0.56,
         scale,
         t,
         isDark,

@@ -604,8 +604,8 @@ export default function Cat() {
             <foreignObject x="38" y="20" width="284" height="148">
               <div
                 xmlns="http://www.w3.org/1999/xhtml"
-                className="flex h-full items-center justify-center text-center leading-snug text-gray-800 dark:text-gray-100"
-                style={{ fontFamily: "'Caveat', cursive", fontSize: '1.4rem', padding: '4px 12px' }}
+                className="flex h-full items-center justify-center text-center leading-snug font-bold text-gray-950 dark:text-gray-950"
+                style={{ fontFamily: "'Caveat', cursive", fontSize: '1.45rem', padding: '4px 12px' }}
               >
                 {messages[messageIndex]}
               </div>

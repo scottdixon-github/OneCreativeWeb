@@ -30,6 +30,7 @@ export default {
         accent: {
           DEFAULT: 'var(--accent)',
           light: 'var(--accent-light)',
+          dark: 'var(--accent-dark)',
         },
         glow: {
           brand: 'var(--glow-brand)',
