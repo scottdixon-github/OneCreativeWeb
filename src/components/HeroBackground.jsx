@@ -6,8 +6,8 @@ export default function HeroBackground() {
   const isDark = theme === 'dark'
 
   const heroImage = isDark
-    ? 'https://images.unsplash.com/photo-1758843425923-9cad18eb2b7a?fm=jpg&q=80&w=2000&auto=format&fit=crop'
-    : 'https://images.unsplash.com/photo-1773751392342-17d8ae9e9f93?fm=jpg&q=80&w=2000&auto=format&fit=crop'
+    ? 'https://images.unsplash.com/photo-1758843425923-9cad18eb2b7a?fm=webp&q=75&w=1200&auto=format&fit=crop'
+    : 'https://images.unsplash.com/photo-1773751392342-17d8ae9e9f93?fm=webp&q=75&w=1200&auto=format&fit=crop'
 
   return (
     <div className="absolute inset-0 -z-10 overflow-hidden">

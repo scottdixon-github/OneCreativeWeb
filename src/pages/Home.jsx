@@ -83,9 +83,9 @@ export default function Home() {
         <div className="relative min-h-[calc(100svh-14rem)] flex items-center">
           <div className="container-max px-4 sm:px-6 lg:px-8 w-full">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.3, ease: 'easeOut' }}
             className="mx-auto max-w-xl text-center"
           >
             <div className="mb-6 sm:mb-8 inline-flex items-center gap-2 rounded-full border border-line-strong bg-surface-elevated/80 px-4 py-2 sm:px-5 sm:py-2.5 text-xs sm:text-sm font-semibold text-brand backdrop-blur-sm shadow-sm">
