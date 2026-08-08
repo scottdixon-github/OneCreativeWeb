@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion, AnimatePresence, useMotionValue, useTransform, animate } from 'framer-motion'
 
 const PRESENT_TYPES = [
   { name: "E-Commerce", color: "#3b82f6", ribbon: "#ef4444", pattern: "stripe" },
@@ -9,7 +9,7 @@ const PRESENT_TYPES = [
   { name: "Custom SaaS", color: "#ec4899", ribbon: "#10b981", pattern: "polka" }
 ]
 
-function Gear({ cx, cy, r, teeth, rotateSpeed, clockwise = true }) {
+function Gear({ progress, cx, cy, r, teeth, rotateSpeed, clockwise = true }) {
   // Tooth geometry: pitch circles touch
   const gearTeeth = Array.from({ length: teeth }).map((_, i) => {
     const angle = (i * 360) / teeth
@@ -45,20 +45,13 @@ function Gear({ cx, cy, r, teeth, rotateSpeed, clockwise = true }) {
   }
   const spiralPath = generateSpiral()
 
-  const maxAngle = 60 * rotateSpeed
-  const rotationKeyframes = clockwise
-    ? [0, maxAngle, maxAngle, 0, -maxAngle, -maxAngle, 0]
-    : [0, -maxAngle, -maxAngle, 0, maxAngle, maxAngle, 0]
+  // 360 * rotateSpeed * 10 is always a multiple of 360, so the loop resets smoothly
+  const totalAngle = 360 * rotateSpeed * 10 * (clockwise ? 1 : -1)
+  const rotation = useTransform(progress, [0, 1], [0, totalAngle])
 
   return (
     <motion.g
-      animate={{ rotate: rotationKeyframes }}
-      transition={{
-        duration: 3.5,
-        ease: "easeInOut",
-        repeat: Infinity
-      }}
-      style={{ originX: `${cx}px`, originY: `${cy}px` }}
+      style={{ rotate: rotation, originX: `${cx}px`, originY: `${cy}px` }}
     >
       {/* Outer rim */}
       <circle cx={cx} cy={cy} r={r} stroke="currentColor" strokeWidth="1.5" fill="none" />
@@ -79,6 +72,17 @@ function Gear({ cx, cy, r, teeth, rotateSpeed, clockwise = true }) {
 
 export default function GearFactory() {
   const [presents, setPresents] = useState([])
+  const progress = useMotionValue(0)
+
+  useEffect(() => {
+    const controls = animate(progress, 1, {
+      duration: 15,
+      ease: 'linear',
+      repeat: Infinity,
+      repeatType: 'loop'
+    })
+    return () => controls.stop()
+  }, [])
 
   useEffect(() => {
     // Periodically output a new wrapped present website
@@ -137,19 +141,19 @@ export default function GearFactory() {
         {/* Meshing gears chain going across the top (Styled like the larger watch balance wheel) */}
         <g className="text-brand/40 dark:text-brand/20">
           {/* Gear 1 */}
-          <Gear cx={45} cy={45} r={28} teeth={18} rotateSpeed={1.0} clockwise={false} />
+          <Gear progress={progress} cx={45} cy={45} r={28} teeth={18} rotateSpeed={1.0} clockwise={false} />
           {/* Gear 2 */}
-          <Gear cx={91} cy={45} r={18} teeth={12} rotateSpeed={1.5} clockwise={true} />
+          <Gear progress={progress} cx={91} cy={45} r={18} teeth={12} rotateSpeed={1.5} clockwise={true} />
           {/* Gear 3 */}
-          <Gear cx={133} cy={45} r={24} teeth={15} rotateSpeed={1.2} clockwise={false} />
+          <Gear progress={progress} cx={133} cy={45} r={24} teeth={15} rotateSpeed={1.2} clockwise={false} />
           {/* Gear 4 */}
-          <Gear cx={181} cy={45} r={24} teeth={15} rotateSpeed={1.2} clockwise={true} />
+          <Gear progress={progress} cx={181} cy={45} r={24} teeth={15} rotateSpeed={1.2} clockwise={true} />
           {/* Gear 5 */}
-          <Gear cx={233} cy={45} r={28} teeth={18} rotateSpeed={1.0} clockwise={false} />
+          <Gear progress={progress} cx={233} cy={45} r={28} teeth={18} rotateSpeed={1.0} clockwise={false} />
           {/* Gear 6 */}
-          <Gear cx={277} cy={45} r={16} teeth={10} rotateSpeed={1.8} clockwise={true} />
+          <Gear progress={progress} cx={277} cy={45} r={16} teeth={10} rotateSpeed={1.8} clockwise={true} />
           {/* Gear 7 (driving inside the box) */}
-          <Gear cx={321} cy={45} r={28} teeth={18} rotateSpeed={1.0} clockwise={false} />
+          <Gear progress={progress} cx={321} cy={45} r={28} teeth={18} rotateSpeed={1.0} clockwise={false} />
         </g>
 
         {/* The Output Box Machine (on the right) */}
