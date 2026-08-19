@@ -1,0 +1,241 @@
+import { motion } from 'framer-motion'
+import { Link } from 'react-router-dom'
+import {
+  Users, Target, Heart, Zap, ArrowRight, ShieldCheck, Award,
+} from 'lucide-react'
+import ParticleField from '../components/ParticleField.jsx'
+import FloatingShapes from '../components/FloatingShapes.jsx'
+import AnimatedOrb from '../components/AnimatedOrb.jsx'
+import TiltCard from '../components/TiltCard.jsx'
+import GradientBorderCard from '../components/GradientBorderCard.jsx'
+import CatMascot from '../components/CatMascot.jsx'
+import SEO from '../components/SEO.jsx'
+
+const blobVariants = {
+  animate: {
+    borderRadius: [
+      '42% 58% 70% 30% / 45% 45% 55% 55%',
+      '70% 30% 46% 54% / 30% 60% 40% 70%',
+      '30% 70% 70% 30% / 60% 40% 60% 40%',
+      '42% 58% 70% 30% / 45% 45% 55% 55%',
+    ],
+    transition: { duration: 15, repeat: Infinity, ease: 'easeInOut' },
+  },
+}
+
+export default function About() {
+  const values = [
+    { icon: Target, title: 'Mission-Driven', description: 'We exist to help businesses succeed online with exceptional digital experiences.' },
+    { icon: Heart, title: 'Client-Centric', description: 'Your success is our success. We go above and beyond to deliver results that matter.' },
+    { icon: Zap, title: 'Innovation First', description: 'We stay at the cutting edge of web technologies to give you a competitive edge.' },
+    { icon: ShieldCheck, title: 'Quality Guaranteed', description: 'Every project meets our rigorous standards for performance, security, and design.' },
+  ]
+
+  return (
+    <div className="noise-bg pt-36">
+      <SEO
+        title="About Us"
+        description="Learn about One Creative Web .com — a Charleston, SC web development agency with 5+ years of experience building custom websites, apps, and e-commerce."
+        keywords="about One Creative Web, web development agency Charleston, custom websites, web apps, e-commerce, UI/UX design"
+        canonical="https://www.onecreativeweb.com/about"
+        jsonLd={{
+          '@context': 'https://schema.org',
+          '@type': 'AboutPage',
+          name: 'About One Creative Web .com',
+          url: 'https://www.onecreativeweb.com/about',
+          description:
+            'Learn about One Creative Web .com — a Charleston, SC web development agency with 5+ years of experience building custom websites, apps, and e-commerce.',
+          mainEntity: {
+            '@type': 'Organization',
+            name: 'One Creative Web .com',
+            url: 'https://www.onecreativeweb.com/',
+            logo: 'https://www.onecreativeweb.com/favicon.svg',
+            sameAs: ['https://github.com/scottdixon-github'],
+          },
+        }}
+      />
+      {/* Hero */}
+      <section className="relative overflow-hidden section-padding">
+        <ParticleField particleCount={35} connectionDistance={90} />
+        <FloatingShapes />
+        <AnimatedOrb className="right-[15%] top-[10%]" size="h-72 w-72" color="brand" />
+        <AnimatedOrb className="left-[10%] bottom-[10%]" size="h-56 w-56" color="accent" delay={3} />
+        <motion.div
+          variants={blobVariants}
+          animate="animate"
+          className="absolute right-[15%] top-[10%] -z-10 h-72 w-72 bg-glow-brand"
+        />
+        <div className="container-max relative">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+            className="mx-auto max-w-3xl text-center"
+          >
+            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-line-strong bg-surface-elevated/50 px-5 py-2.5 text-sm font-medium text-brand backdrop-blur-sm">
+              <Users className="h-4 w-4" />
+              About Us
+            </div>
+            <h1 className="font-display text-3xl font-extrabold leading-[1.05] text-content sm:text-5xl lg:text-6xl text-balance">
+              We're{' '}
+              <span className="gradient-text">One Creative Web .com</span>
+            </h1>
+            <p className="mt-8 text-lg text-content-muted text-pretty">
+              A team of passionate developers, designers, and engineers dedicated to building
+              exceptional web experiences. Since 2013, we've helped over 150 businesses launch
+              and grow their digital presence.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Stats Ticker Band */}
+      <section className="relative border-y border-line bg-surface-sunken/80 overflow-hidden py-3">
+        <div className="flex w-full overflow-hidden select-none whitespace-nowrap">
+          <div className="flex shrink-0 animate-marquee-reverse items-center justify-around gap-12 font-display text-sm font-bold uppercase tracking-wider text-content">
+            <span className="flex items-center gap-2.5">
+              <span className="text-brand">Hundreds of</span> Projects Delivered
+            </span>
+            <span className="text-accent">•</span>
+            <span className="flex items-center gap-2.5">
+              <span className="text-brand">98%</span> Client Satisfaction
+            </span>
+            <span className="text-accent">•</span>
+            <span className="flex items-center gap-2.5">
+              <span className="text-brand">5 plus</span> Years Experience
+            </span>
+            <span className="text-accent">•</span>
+          </div>
+
+          <div aria-hidden="true" className="flex shrink-0 animate-marquee-reverse items-center justify-around gap-12 font-display text-sm font-bold uppercase tracking-wider text-content">
+            <span className="flex items-center gap-2.5">
+              <span className="text-brand">Hundreds of</span> Projects Delivered
+            </span>
+            <span className="text-accent">•</span>
+            <span className="flex items-center gap-2.5">
+              <span className="text-brand">98%</span> Client Satisfaction
+            </span>
+            <span className="text-accent">•</span>
+            <span className="flex items-center gap-2.5">
+              <span className="text-brand">5 plus</span> Years Experience
+            </span>
+            <span className="text-accent">•</span>
+          </div>
+
+          <div aria-hidden="true" className="flex shrink-0 animate-marquee-reverse items-center justify-around gap-12 font-display text-sm font-bold uppercase tracking-wider text-content">
+            <span className="flex items-center gap-2.5">
+              <span className="text-brand">Hundreds of</span> Projects Delivered
+            </span>
+            <span className="text-accent">•</span>
+            <span className="flex items-center gap-2.5">
+              <span className="text-brand">98%</span> Client Satisfaction
+            </span>
+            <span className="text-accent">•</span>
+            <span className="flex items-center gap-2.5">
+              <span className="text-brand">5 plus</span> Years Experience
+            </span>
+            <span className="text-accent">•</span>
+          </div>
+        </div>
+      </section>
+
+      {/* Values */}
+      <section className="relative overflow-hidden section-padding">
+        <FloatingShapes />
+        <AnimatedOrb className="right-[5%] top-[20%]" size="h-48 w-48" color="brand" delay={4} />
+        <div className="container-max relative">
+          <div className="mx-auto max-w-2xl text-center">
+            <div className="mb-4 flex items-center justify-center gap-3">
+              <div className="h-px w-12 bg-brand" />
+              <span className="text-sm font-semibold uppercase tracking-wider text-brand">
+                What Drives Us
+              </span>
+              <div className="h-px w-12 bg-brand" />
+            </div>
+            <h2 className="font-display text-3xl font-bold text-content sm:text-4xl lg:text-5xl text-balance">
+              Our{' '}
+              <span className="gradient-text">values</span>
+            </h2>
+          </div>
+
+          <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {values.map((value, i) => {
+              const ValueIcon = value.icon
+              return (
+                <motion.div
+                  key={value.title}
+                  initial={{ opacity: 0, y: 40 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: i * 0.08 }}
+                  className={i % 2 === 1 ? 'lg:mt-8' : ''}
+                >
+                  <TiltCard intensity={6}>
+                    <div className="card-organic p-8 text-center">
+                      <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-[1.5rem] bg-gradient-to-br from-brand/15 to-accent/15 ring-1 ring-brand/20">
+                        <ValueIcon className="h-8 w-8 text-brand" />
+                      </div>
+                      <h3 className="mt-6 font-display text-lg font-bold text-content">{value.title}</h3>
+                      <p className="mt-2 text-sm text-content-muted text-pretty">{value.description}</p>
+                    </div>
+                  </TiltCard>
+                </motion.div>
+              )
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="section-padding">
+        <div className="container-max">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <GradientBorderCard className="rounded-[3rem]">
+              <div className="relative overflow-hidden rounded-[3rem] bg-surface-elevated p-12 text-center sm:p-16">
+                <div className="absolute -right-10 -top-10 flex items-center gap-2 z-10">
+                  {/* Decorative circle target to the left of the cat */}
+                  <motion.div
+                    animate={{ scale: [1, 1.15, 1], rotate: [0, 180, 360] }}
+                    transition={{ duration: 3.5, repeat: Infinity, ease: 'easeInOut' }}
+                    className="h-10 w-10 rounded-full border-2 border-brand/60 bg-gradient-to-br from-brand/30 to-accent/30 backdrop-blur-sm shadow-md shadow-glow-brand"
+                  />
+                  {/* Organic blob container housing the pawing cat mascot */}
+                  <motion.div
+                    variants={blobVariants}
+                    animate="animate"
+                    className="h-44 w-44 flex items-center justify-center bg-surface-sunken/80 backdrop-blur-sm overflow-hidden"
+                    style={{ borderRadius: '42% 58% 70% 30% / 45% 45% 55% 55%' }}
+                  >
+                    <CatMascot size={140} className="relative z-10" />
+                  </motion.div>
+                </div>
+                <FloatingShapes />
+                <div className="relative">
+                  <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-3xl bg-gradient-to-br from-brand to-accent shadow-lg shadow-glow-brand">
+                    <Award className="h-8 w-8 text-white" />
+                  </div>
+                  <h2 className="mt-8 font-display text-3xl font-bold text-content sm:text-4xl lg:text-5xl text-balance">
+                    Let's work{' '}
+                    <span className="gradient-text">together</span>
+                  </h2>
+                  <p className="mx-auto mt-5 max-w-2xl text-lg text-content-muted text-pretty">
+                    Ready to start your next project? We'd love to hear from you.
+                  </p>
+                  <Link to="/contact" className="btn-primary mt-8">
+                    Get in Touch
+                    <ArrowRight className="h-4 w-4" />
+                  </Link>
+                </div>
+              </div>
+            </GradientBorderCard>
+          </motion.div>
+        </div>
+      </section>
+    </div>
+  )
+}

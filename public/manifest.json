@@ -1,0 +1,22 @@
+{
+  "short_name": "One Creative Web",
+  "name": "One Creative Web .com",
+  "id": "/",
+  "description": "Charleston, SC web development agency — custom websites, web apps, e-commerce, and UI/UX design.",
+  "start_url": ".",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "dir": "ltr",
+  "lang": "en-US",
+  "theme_color": "#4f46e5",
+  "background_color": "#ffffff",
+  "categories": ["business", "productivity", "web development"],
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
