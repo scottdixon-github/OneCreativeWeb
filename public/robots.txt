@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /?*
 Sitemap: https://www.onecreativeweb.com/sitemap.xml
-Host: https://www.onecreativeweb.com
+Host: www.onecreativeweb.com
