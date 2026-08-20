@@ -1,0 +1,27 @@
+# One Creative Web .com
+
+> Charleston, SC web development agency. We build custom websites, web apps, e-commerce stores, and UI/UX designs that rank, convert, and scale.
+
+This website is optimized for AI search, large language models, and answer engines. The content below is a machine-readable summary of our services, portfolio, and key pages.
+
+## Main Pages
+
+- [Home](https://www.onecreativeweb.com/): One Creative Web .com — full-featured web development services in Charleston, SC.
+- [Services](https://www.onecreativeweb.com/services): Explore our web development services, including custom websites, e-commerce, web apps, and UI/UX design.
+- [Portfolio](https://www.onecreativeweb.com/portfolio): A selection of custom websites, web applications, e-commerce stores, and UI/UX design projects.
+- [About](https://www.onecreativeweb.com/about): Learn about our team, values, and experience helping businesses succeed online.
+- [Contact](https://www.onecreativeweb.com/contact): Get a free consultation and quote for your next web project.
+
+## Services
+
+- [Custom Website Development](https://www.onecreativeweb.com/services/custom-website-development): Tailor-made websites built from scratch with React, Next.js, Vue, Astro, TailwindCSS, and TypeScript.
+- [E-Commerce Solutions](https://www.onecreativeweb.com/services/e-commerce-solutions): Full-featured online stores with secure checkout, payment integration, and scalable inventory management.
+- [Web Application Development](https://www.onecreativeweb.com/services/web-application-development): Complex web applications with real-time features, APIs, authentication, and databases.
+- [Responsive & Mobile Design](https://www.onecreativeweb.com/services/responsive-mobile-design): Mobile-first, responsive layouts and progressive web app (PWA) capabilities.
+- [UI/UX Design](https://www.onecreativeweb.com/services/ui-ux-design): Beautiful, conversion-focused interfaces backed by user research and high-fidelity prototypes.
+- [SEO & Performance Optimization](https://www.onecreativeweb.com/services/seo-performance-optimization): Technical SEO, Core Web Vitals, schema markup, and Lighthouse 90+ performance tuning.
+
+## Optional
+
+- [sitemap.xml](https://www.onecreativeweb.com/sitemap.xml): XML sitemap for search and AI crawlers.
+- [robots.txt](https://www.onecreativeweb.com/robots.txt): Robots instructions for crawlers.

@@ -1,0 +1,105 @@
+# One Creative Web .com — Full Site Context for AI
+
+> Charleston, SC web development agency. We build custom websites, web apps, e-commerce stores, and UI/UX designs that rank, convert, and scale.
+
+## About
+
+One Creative Web .com is a Charleston, South Carolina-based web development agency with 5+ years of experience. Since 2013, we have helped over 150 businesses launch and grow their digital presence. Our team is made up of passionate developers, designers, and engineers dedicated to building exceptional web experiences.
+
+Core values:
+- Mission-Driven: We exist to help businesses succeed online.
+- Client-Centric: Your success is our success.
+- Innovation First: We stay at the cutting edge of web technologies.
+- Quality Guaranteed: Every project meets rigorous standards for performance, security, and design.
+
+## Services
+
+### Custom Website Development
+- URL: https://www.onecreativeweb.com/services/custom-website-development
+- Tagline: Tailor-made websites built from scratch.
+- Description: We craft pixel-perfect, fully custom websites that reflect your brand identity. No templates — every line of code is written to meet your unique requirements.
+- Features: Responsive design for all devices, SEO-optimized semantic markup, WCAG 2.1 accessibility, CMS integration (WordPress, Strapi, Sanity), custom animations, cross-browser compatibility.
+- Technologies: React, Next.js, Vue, Astro, TailwindCSS, TypeScript.
+- Starting Price: $2,500
+- Delivery: 3–6 weeks
+
+### E-Commerce Solutions
+- URL: https://www.onecreativeweb.com/services/e-commerce-solutions
+- Tagline: Sell smarter with powerful online stores.
+- Description: Launch a full-featured online store with secure checkout, inventory management, and seamless payment integration. Built to scale from your first sale to millions.
+- Features: Secure payment gateways (Stripe, PayPal, Apple Pay), inventory and order management dashboard, product catalog with variants and filtering, shopping cart and wishlist, customer accounts and order tracking, analytics and conversion tracking.
+- Technologies: Shopify, WooCommerce, Medusa, Next.js Commerce, Stripe, Supabase.
+- Starting Price: $4,000
+- Delivery: 4–8 weeks
+
+### Web Application Development
+- URL: https://www.onecreativeweb.com/services/web-application-development
+- Tagline: Complex apps that scale with your business.
+- Description: From SaaS platforms to internal tools, we build robust web applications with real-time features, authentication, and database architecture designed for growth.
+- Features: User authentication and role-based access, real-time data with WebSockets, REST and GraphQL API development, database design and optimization, third-party API integrations, automated testing and CI/CD pipelines.
+- Technologies: React, Node.js, PostgreSQL, Prisma, GraphQL, Docker.
+- Starting Price: $10,000
+- Delivery: 6–12 weeks
+
+### Responsive & Mobile Design
+- URL: https://www.onecreativeweb.com/services/responsive-mobile-design
+- Tagline: Flawless experiences on every screen size.
+- Description: Your users are on mobile. We design and build mobile-first experiences that look stunning and perform flawlessly across phones, tablets, and desktops.
+- Features: Mobile-first responsive layouts, touch-optimized interactions, PWA capabilities, app-like navigation patterns, offline functionality and caching, push notification support.
+- Technologies: React, PWA, Service Workers, TailwindCSS, Framer Motion.
+- Starting Price: $1,800
+- Delivery: 2–4 weeks
+
+### UI/UX Design
+- URL: https://www.onecreativeweb.com/services/ui-ux-design
+- Tagline: Beautiful interfaces backed by user research.
+- Description: We design intuitive, conversion-focused interfaces. From wireframes to high-fidelity prototypes, every element is crafted with your users in mind.
+- Features: User research and persona development, wireframing and user flow mapping, high-fidelity Figma prototypes, design system and component library, usability testing and iteration, developer-ready handoff specs.
+- Technologies: Figma, Framer, Adobe XD, Principle, Storybook.
+- Starting Price: $1,500
+- Delivery: 2–5 weeks
+
+### SEO & Performance Optimization
+- URL: https://www.onecreativeweb.com/services/seo-performance-optimization
+- Tagline: Rank higher, load faster, convert better.
+- Description: Get found on Google and keep users engaged. We optimize your site for search engines and peak performance with Core Web Vitals in the green.
+- Features: Technical SEO audit and implementation, Core Web Vitals optimization, schema markup and structured data, image and asset optimization, Lighthouse score 90+ guarantee, ongoing performance monitoring.
+- Technologies: Lighthouse, Schema.org, Google Search Console, Analytics, CDN.
+- Starting Price: $800
+- Delivery: 1–3 weeks
+
+## Our Process
+
+1. Discovery & Planning: We dive into your business goals, target audience, and project requirements to create a comprehensive roadmap.
+2. Design & Prototyping: We craft wireframes and interactive prototypes, refining the user experience before writing code.
+3. Development & Testing: We build using modern technologies with rigorous testing at every stage.
+4. Launch & Support: We deploy to production and provide ongoing maintenance, updates, and support.
+
+## Notable Projects
+
+- Nimbus Cloud Dashboard: A real-time cloud infrastructure monitoring dashboard for DevOps teams (React, Node.js, WebSockets, D3.js).
+- Verdant Organic Shop: A full-featured organic grocery store with same-day delivery scheduling (Next.js, Shopify, Stripe, TailwindCSS).
+- Pulse Fitness App: A progressive web app for workout tracking with offline support (React PWA, IndexedDB, Service Workers).
+- Atlas Travel Platform: A luxury travel booking platform with an interactive itinerary builder (Vue, Nuxt, Mapbox, GraphQL).
+- Quantum Finance Portal: An enterprise financial dashboard with real-time market data (React, TypeScript, D3.js, AWS).
+- Bloom Studio Portfolio: An award-winning portfolio site for a creative design studio (Figma, Framer Motion, GSAP).
+
+## Client Testimonials
+
+- Sarah Mitchell, CEO of Verdant Organics: "One Creative Web .com transformed our online store. Sales jumped 180% in the first quarter after launch."
+- James Chen, CTO of Nimbus Systems: "The dashboard they built is a masterpiece. Real-time data, beautiful UI, and it handles thousands of concurrent users."
+- Amelia Rodriguez, Founder of Pulse Fitness: "They turned our app idea into a stunning PWA. Offline support works flawlessly and user engagement has never been higher."
+- David Okafor, Marketing Director of Atlas Travel: "Our new booking platform is gorgeous and converts like crazy. The interactive itinerary builder is a game-changer."
+
+## Contact
+
+- Website: https://www.onecreativeweb.com/
+- Email: hello@onecreativeweb.com
+- Phone: (312) 956-7549
+- Location: Charleston, SC
+
+## Machine-readable Resources
+
+- sitemap.xml: https://www.onecreativeweb.com/sitemap.xml
+- robots.txt: https://www.onecreativeweb.com/robots.txt
+- llms.txt (short version): https://www.onecreativeweb.com/llms.txt
