@@ -1,8 +1,30 @@
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
-  RewriteRule ^index\.html$ - [L]
-  RewriteCond %{REQUEST_FILENAME} !-f
-  RewriteCond %{REQUEST_FILENAME} !-d
+
+  # Never rewrite real files (robots.txt, sitemap.xml, favicon, etc.)
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+
+  # SPA fallback: send everything else to index.html
   RewriteRule . /index.html [L]
+</IfModule>
+
+# Long-cache static SEO files so crawlers get fast, reliable responses
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/plain "access plus 1 hour"
+  ExpiresByType application/xml "access plus 1 hour"
+  ExpiresByType text/xml "access plus 1 hour"
+  ExpiresByType image/svg+xml "access plus 7 days"
+  ExpiresByType image/jpeg "access plus 7 days"
+  ExpiresByType application/manifest+json "access plus 7 days"
+  ExpiresByType text/plain; charset=utf-8 "access plus 1 hour"
+</IfModule>
+
+<IfModule mod_headers.c>
+  <FilesMatch "^(robots\.txt|sitemap\.xml|llms\.txt|llms-full\.txt)$">
+    Header set Cache-Control "public, max-age=3600"
+  </FilesMatch>
 </IfModule>
