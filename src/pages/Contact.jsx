@@ -270,9 +270,11 @@ export default function Contact() {
               transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
               className="space-y-4"
             >
-              <div className="card-organic relative overflow-hidden flex flex-col items-center justify-center p-6 bg-gradient-to-br from-brand/10 to-accent/10">
-                <CatMascot size={110} className="relative z-10" waving={true} variant="maneki" />
-                <p className="mt-4 text-center text-sm font-medium text-content-muted">
+              <div className="card-organic relative overflow-hidden flex flex-col items-center justify-center p-8 sm:p-10 bg-gradient-to-br from-brand/15 via-surface-elevated/80 to-accent/15 border border-line-strong/30 shadow-lg shadow-glow-brand/15 min-h-[290px]">
+                <div className="absolute -top-12 -left-12 h-36 w-36 rounded-full bg-glow-brand/40 blur-2xl" />
+                <div className="absolute -bottom-12 -right-12 h-36 w-36 rounded-full bg-glow-accent/40 blur-2xl" />
+                <CatMascot size={135} className="relative z-10 drop-shadow-sm" waving={true} variant="maneki" />
+                <p className="mt-5 text-center text-sm font-semibold text-content-muted leading-relaxed max-w-[240px]">
                   Let's chat! Our lucky cat helper is ready to listen.
                 </p>
               </div>

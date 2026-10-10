@@ -32,12 +32,14 @@ export default function CatMascot({
     const isDark = theme === 'dark'
 
     const isMobile = window.innerWidth < 640
-    const displaySize = Math.min(size, isMobile ? 110 : size)
+    const displaySize = Math.min(size, isMobile ? 120 : size)
+    const displayWidth = displaySize
+    const displayHeight = Math.round(displaySize * 1.18)
     const dpr = Math.min(window.devicePixelRatio, 2)
-    canvas.width = displaySize * dpr
-    canvas.height = displaySize * dpr
-    canvas.style.width = `${displaySize}px`
-    canvas.style.height = `${displaySize}px`
+    canvas.width = displayWidth * dpr
+    canvas.height = displayHeight * dpr
+    canvas.style.width = `${displayWidth}px`
+    canvas.style.height = `${displayHeight}px`
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0)
 
     const handleMouseMove = (e) => {
@@ -73,13 +75,14 @@ export default function CatMascot({
       const earTwitch =
         t < twitch.until ? Math.sin((t - (twitch.until - 0.35)) * 28) * 0.15 : 0
 
-      ctx.clearRect(0, 0, displaySize, displaySize)
+      ctx.clearRect(0, 0, displayWidth, displayHeight)
 
       if (variant === 'maneki' || waving) {
-        const scale = displaySize / 154
+        // Generous vertical room so ears (-88) and raised waving paw (-75) have ample clearance
+        const scale = displaySize / 172
         drawManekiNeko(ctx, {
-          x: displaySize / 2,
-          y: displaySize * 0.52,
+          x: displayWidth / 2,
+          y: displayHeight * 0.55,
           scale,
           t,
           isDark,
@@ -90,10 +93,10 @@ export default function CatMascot({
         })
       } else {
         const pawReach = pawing ? (Math.sin(t * 3.2) * 0.5 + 0.5) * 0.85 : 0
-        const scale = displaySize / 152
+        const scale = displaySize / 165
         drawCatBody(ctx, {
-          x: displaySize / 2,
-          y: displaySize * 0.56,
+          x: displayWidth / 2,
+          y: displayHeight * 0.55,
           scale,
           t,
           isDark,
