@@ -271,9 +271,9 @@ export default function Contact() {
               className="space-y-4"
             >
               <div className="card-organic relative overflow-hidden flex flex-col items-center justify-center p-6 bg-gradient-to-br from-brand/10 to-accent/10">
-                <CatMascot size={95} className="relative z-10" />
+                <CatMascot size={110} className="relative z-10" waving={true} variant="maneki" />
                 <p className="mt-4 text-center text-sm font-medium text-content-muted">
-                  Let's chat! Our cat helper is ready to listen.
+                  Let's chat! Our lucky cat helper is ready to listen.
                 </p>
               </div>
 

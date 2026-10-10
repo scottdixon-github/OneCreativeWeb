@@ -100,6 +100,8 @@ export function drawCatBody(ctx, opts) {
     earTwitch = 0,
     shadow = true,
     pawReach = 0,
+    showArm = false,
+    waving = false,
   } = opts
 
   const { orange, orangeLight, stripe, cream, innerEar, pink, amber, dark } = catPalette(isDark)
@@ -153,11 +155,14 @@ export function drawCatBody(ctx, opts) {
   drawStripe(ctx, legR_x, 30, 6, 5, stripe, 0.45)
   fluffyEllipse(ctx, 18, 56, 11, 7, cream, 29)
 
-  if (pawReach > 0.01) {
-    // Pawing arm pivoted at the shoulder (-16, -18) right below the head
+  if (waving) {
+    // Left sitting hind foot grounded below
+    fluffyEllipse(ctx, -18, 56, 10, 7, cream, 27)
+  } else if (showArm || pawReach > 0.01) {
+    // Arm pivoted at the shoulder (-16, -18) right below the head
     const shoulderX = -16
     const shoulderY = -18
-    const armAngle = -0.35 - pawReach * 0.95 // Pivots upward and outward toward left target
+    const armAngle = -0.35 - pawReach * 0.95 // Resting in-place angle is -0.35, moves outward only if pawReach > 0
 
     ctx.save()
     ctx.translate(shoulderX, shoulderY)
@@ -268,5 +273,62 @@ export function drawCatBody(ctx, opts) {
   ctx.fill()
 
   ctx.restore()
+
+  if (waving) {
+    // Waving left front arm saying hello to the user!
+    const waveSpeed = 4.2
+    const wave = Math.sin(t * waveSpeed)
+    const waveArm = wave * 0.08
+    const waveForearm = wave * 0.3
+    const waveWrist = Math.sin(t * waveSpeed - 0.35) * 0.22
+
+    const shoulderX = -15
+    const shoulderY = -14
+
+    ctx.save()
+    ctx.translate(shoulderX, shoulderY)
+    // Upper arm reaches up-left toward elbow
+    ctx.rotate(2.45 + waveArm)
+
+    // Upper arm
+    fluffyEllipse(ctx, 0, 10, 8, 13, orangeLight, 17)
+    drawStripe(ctx, 0, 8, 5, 4, stripe, 0.45)
+
+    // Move to elbow
+    ctx.translate(0, 18)
+    // Forearm points up-right toward ear/cheek, flexing back & forth with wave
+    ctx.rotate(0.55 + waveForearm)
+
+    // Forearm
+    fluffyEllipse(ctx, 0, 9, 7.5, 12, orangeLight, 18)
+
+    // Move to wrist / paw
+    ctx.translate(0, 16)
+    ctx.rotate(waveWrist)
+
+    // Cute fluffy cream paw facing the user
+    fluffyEllipse(ctx, 0, 0, 10, 9, cream, 25)
+
+    // Adorable pink paw pads facing the user!
+    ctx.fillStyle = pink
+    // Main palm pad
+    ctx.beginPath()
+    ctx.ellipse(0, 1.2, 4, 3.2, 0, 0, Math.PI * 2)
+    ctx.fill()
+
+    // 3 Cute little toe beans
+    ctx.beginPath()
+    ctx.ellipse(-3.6, -3.2, 1.6, 2.1, -0.2, 0, Math.PI * 2)
+    ctx.fill()
+    ctx.beginPath()
+    ctx.ellipse(0, -4.3, 1.7, 2.2, 0, 0, Math.PI * 2)
+    ctx.fill()
+    ctx.beginPath()
+    ctx.ellipse(3.6, -3.2, 1.6, 2.1, 0.2, 0, Math.PI * 2)
+    ctx.fill()
+
+    ctx.restore()
+  }
+
   ctx.restore()
 }

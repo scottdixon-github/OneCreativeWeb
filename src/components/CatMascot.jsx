@@ -1,12 +1,21 @@
 import { useEffect, useRef } from 'react'
 import { useTheme } from '../context/ThemeContext.jsx'
 import { drawCatBody } from '../lib/catDraw.js'
+import { drawManekiNeko } from '../lib/manekiDraw.js'
 
 /**
- * Small idle version of the hero cat, sized to fit inside a decorative blob.
- * Breathes, blinks, twitches its ears and follows the cursor with its eyes.
+ * Small idle version of the cat mascot.
+ * Supports the iconic waving Japanese Maneki-Neko (Lucky Cat) with golden coin,
+ * bell, and waving paw, as well as the classic tabby style.
  */
-export default function CatMascot({ size = 120, className = '' }) {
+export default function CatMascot({
+  size = 120,
+  className = '',
+  pawing = false,
+  showArm = false,
+  waving = true,
+  variant = 'maneki',
+}) {
   const canvasRef = useRef(null)
   const { theme } = useTheme()
   const animationRef = useRef(null)
@@ -23,7 +32,7 @@ export default function CatMascot({ size = 120, className = '' }) {
     const isDark = theme === 'dark'
 
     const isMobile = window.innerWidth < 640
-    const displaySize = Math.min(size, isMobile ? 100 : size)
+    const displaySize = Math.min(size, isMobile ? 110 : size)
     const dpr = Math.min(window.devicePixelRatio, 2)
     canvas.width = displaySize * dpr
     canvas.height = displaySize * dpr
@@ -64,27 +73,42 @@ export default function CatMascot({ size = 120, className = '' }) {
       const earTwitch =
         t < twitch.until ? Math.sin((t - (twitch.until - 0.35)) * 28) * 0.15 : 0
 
-      // Pawing animation — rhythmically reaching outward towards the circle to the left
-      const pawReach = (Math.sin(t * 3.2) * 0.5 + 0.5) * 0.85
-
       ctx.clearRect(0, 0, displaySize, displaySize)
-      // The cat spans roughly -80..+72 vertically at scale 1.
-      const scale = displaySize / 152
-      drawCatBody(ctx, {
-        x: displaySize / 2,
-        y: displaySize * 0.56,
-        scale,
-        t,
-        isDark,
-        walkProgress: 1,
-        walking: false,
-        lookDX: -1.8, // Look left towards the circle
-        lookDY: lookRef.current.y,
-        eyesOpen: t > blink.until,
-        earTwitch,
-        shadow: false,
-        pawReach,
-      })
+
+      if (variant === 'maneki' || waving) {
+        const scale = displaySize / 154
+        drawManekiNeko(ctx, {
+          x: displaySize / 2,
+          y: displaySize * 0.52,
+          scale,
+          t,
+          isDark,
+          lookDX: lookRef.current.x,
+          lookDY: lookRef.current.y,
+          eyesOpen: t > blink.until,
+          earTwitch,
+        })
+      } else {
+        const pawReach = pawing ? (Math.sin(t * 3.2) * 0.5 + 0.5) * 0.85 : 0
+        const scale = displaySize / 152
+        drawCatBody(ctx, {
+          x: displaySize / 2,
+          y: displaySize * 0.56,
+          scale,
+          t,
+          isDark,
+          walkProgress: 1,
+          walking: false,
+          lookDX: pawing ? -1.8 : lookRef.current.x,
+          lookDY: lookRef.current.y,
+          eyesOpen: t > blink.until,
+          earTwitch,
+          shadow: false,
+          pawReach,
+          showArm,
+          waving,
+        })
+      }
     }
 
     animationRef.current = requestAnimationFrame(animate)
@@ -93,7 +117,7 @@ export default function CatMascot({ size = 120, className = '' }) {
       cancelAnimationFrame(animationRef.current)
       window.removeEventListener('mousemove', handleMouseMove)
     }
-  }, [theme, size])
+  }, [theme, size, pawing, showArm, waving, variant])
 
   return <canvas ref={canvasRef} className={className} aria-hidden="true" />
 }
