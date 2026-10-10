@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 import { X } from 'lucide-react'
 
 export default function CookieBanner() {
@@ -31,7 +32,7 @@ export default function CookieBanner() {
             <h2 className="font-display text-sm font-bold text-content">Cookie Preferences</h2>
             <p className="text-sm text-content-muted">
               We use cookies to enhance your experience, analyze site traffic, and serve personalized content.{' '}
-              <a href="#" className="underline hover:text-brand">Learn more</a>
+              <Link to="/privacy" className="underline hover:text-brand">Learn more</Link>
             </p>
           </div>
           <div className="flex items-center gap-3">

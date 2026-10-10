@@ -23,6 +23,8 @@ export default function Footer() {
         { name: 'Portfolio', path: '/portfolio' },
         { name: 'Contact', path: '/contact' },
         { name: 'Get a Quote', path: '/contact' },
+        { name: 'Privacy Policy', path: '/privacy' },
+        { name: 'Terms of Service', path: '/terms' },
       ],
     },
   ]
@@ -114,12 +116,12 @@ export default function Footer() {
             © {year} One Creative Web .com. All rights reserved.
           </p>
           <div className="flex gap-6">
-            <a href="#" className="text-sm font-medium text-content-muted hover:text-brand">
+            <Link to="/privacy" className="text-sm font-medium text-content-muted transition-colors hover:text-brand">
               Privacy Policy
-            </a>
-            <a href="#" className="text-sm font-medium text-content-muted hover:text-brand">
+            </Link>
+            <Link to="/terms" className="text-sm font-medium text-content-muted transition-colors hover:text-brand">
               Terms of Service
-            </a>
+            </Link>
           </div>
         </div>
       </div>

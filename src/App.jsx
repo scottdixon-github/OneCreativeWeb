@@ -9,6 +9,8 @@ import ServiceDetail from './pages/ServiceDetail.jsx'
 import Portfolio from './pages/Portfolio.jsx'
 import About from './pages/About.jsx'
 import Contact from './pages/Contact.jsx'
+import Terms from './pages/Terms.jsx'
+import Privacy from './pages/Privacy.jsx'
 import CookieBanner from './components/CookieBanner.jsx'
 
 export default function App() {
@@ -25,6 +27,10 @@ export default function App() {
           <Route path="/portfolio" element={<Portfolio />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/terms" element={<Terms />} />
+          <Route path="/terms-of-service" element={<Terms />} />
+          <Route path="/privacy" element={<Privacy />} />
+          <Route path="/privacy-policy" element={<Privacy />} />
         </Routes>
       </main>
       <Footer />
